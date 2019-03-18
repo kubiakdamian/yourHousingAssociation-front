@@ -31,3 +31,12 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+  padding-top: 55px;
+  padding-bottom: 50px;
+  min-height: 100vh;
+  position: relative;
+  /* Background pattern from Toptal Subtle Patterns */
+  background-image: url(./Images/background.png);
+}
