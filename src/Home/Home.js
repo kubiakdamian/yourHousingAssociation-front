@@ -27,11 +27,11 @@ class Home extends Component {
                                 <Button 
                                     label={"Sign In"}
                                     style={{backgroundColor: "rgb(66, 134, 244)", minWidth: "15vw", minHeight: "6vh", marginBottom: "2vh"}}
-                                    onClick={() => this.nextPath('/')}/>
+                                    onClick={() => this.nextPath('/signIn')}/>
                                 <Button 
                                     label={"Sign Up"}
                                     style={{backgroundColor: "rgb(66, 134, 244)", minWidth: "15vw", minHeight: "6vh"}}
-                                    onClick={() => this.nextPath('/')}/>
+                                    onClick={() => this.nextPath('/signUp')}/>
                             </div>
                         </ButtonContainer>
                     </ImageContainer>

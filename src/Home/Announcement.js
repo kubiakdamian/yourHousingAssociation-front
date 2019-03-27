@@ -3,9 +3,6 @@ import styled from 'styled-components';
 
 class Announcement extends Component {
     render() {
-        const divStyle = {
-            color: 'blue',
-        };
         return (
             <Box className="col-md-8 ml-auto mr-auto">
                     <Header>{this.props.header}</Header>

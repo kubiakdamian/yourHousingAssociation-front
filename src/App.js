@@ -1,14 +1,18 @@
 //Bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
-import $ from 'jquery';
-import Popper from 'popper.js';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+//Notifications
+import {NotificationContainer} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 //Components
 import React, { Component } from 'react';
 import './App.css';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Layout from './Layout/Layout';
 import Home from './Home/Home.js';
+import SignIn from './Session/SignIn';
+import SignUp from './Session/SignUp';
+
 
 class App extends Component {
   render() {
@@ -16,6 +20,9 @@ class App extends Component {
 		<Router>
 			<Layout />
 			<Route exact path="/" component={Home}/>
+      <Route path="/signIn" component={SignIn}/>
+      <Route path="/signUp" component={SignUp}/>
+      <NotificationContainer />
 		</Router>
     );
   }
