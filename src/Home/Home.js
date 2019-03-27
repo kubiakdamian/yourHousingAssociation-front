@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import homeImg from '../Images/home.jpg';
 import Button from '../InterfaceUtils/Button';
+import Announcement from './Announcement';
+import Header from './../InterfaceUtils/Header';
+//images - all images come from Pixabay
+import homeImg from '../Images/home.jpg';
+import electricityImg from '../Images/electricity.jpg';
+import waterImg from '../Images/water.jpg';
+import gasImg from '../Images/gas.jpg';
+
 
 class Home extends Component {
 
@@ -14,7 +21,7 @@ class Home extends Component {
             <div className="container-fluid">
                 <div className="row">
                     <ImageContainer className="col-md-12">
-                        <Header className="col-md-12">Your Housing Association</Header>
+                        <Header header="Your Housing Association" />
                         <ButtonContainer className="col-md-12 text-center">
                             <div className="btn-group-vertical" style={{marginBottom: "15vh"}}>
                                 <Button 
@@ -28,6 +35,9 @@ class Home extends Component {
                             </div>
                         </ButtonContainer>
                     </ImageContainer>
+                    <Announcement img={electricityImg} header="Podwyżki cen prądu" text="Z przykrością informujemy, że od 14.05 b.r. w życie wejdą planowane podwyżki cen prądu."/>
+                    <Announcement img={waterImg} header="Lorem Ipsum" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce at tellus nibh. Sed vitae lorem risus. Praesent bibendum est ac tempus sagittis."/>
+                    <Announcement img={gasImg} header="Lorem Ipsum" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce at tellus nibh. Sed vitae lorem risus. Praesent bibendum est ac tempus sagittis."/>
                 </div>
             </div>
         );
@@ -42,21 +52,15 @@ const ImageContainer = styled.div`
     background-position: center;
     background-size: cover;
     background-image: url(${homeImg});
-    min-height:70vh;
-    max-height: 70vh;
+    min-height: 65vh;
+    max-height: 65vh;
     position: relative;
-`;
-
-const Header = styled.div`
-    font-size: 80px;
-    text-align: center;
-    font-family: 'Lilita One', cursive;
-    color: black;
 
     @media screen and (max-width: 768px) {
-        font-size: 55px;
+        min-height: 80vh;
+        max-height: 80vh;
     } 
-`
+`;
 
 const ButtonContainer = styled.div`
     position: relative;
