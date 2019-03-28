@@ -3,7 +3,6 @@ import './LayoutStyle.css';
 import styled from 'styled-components';
 import signOutIcon from '../Images/signOut.png'
 import { connect } from 'react-redux';
-import {NotificationManager} from 'react-notifications';
 
 class Layout extends Component {
 
@@ -31,9 +30,7 @@ class Layout extends Component {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div className="navbar-nav">
-                            <a className="nav-item nav-link active" href="/">Home <span className="sr-only">(current)</span></a>
-                            <a className="nav-item nav-link" href="/">Features</a>
-                            <a className="nav-item nav-link" href="/">Pricing</a>
+                            <a className="nav-item nav-link" href="/">Charges</a>
                             <SignOut className="nav-item nav-link" href="/" onClick={this.signOut}>
                                 <img src={signOutIcon} width="40" height="38" className="d-inline-block align-top" alt="" />
                             </SignOut>

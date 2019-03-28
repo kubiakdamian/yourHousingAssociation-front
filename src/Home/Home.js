@@ -22,18 +22,20 @@ class Home extends Component {
                 <div className="row">
                     <ImageContainer className="col-md-12">
                         <Header header="Your Housing Association" />
-                        <ButtonContainer className="col-md-12 text-center">
-                            <div className="btn-group-vertical" style={{marginBottom: "15vh"}}>
-                                <Button 
-                                    label={"Sign In"}
-                                    style={{backgroundColor: "rgb(66, 134, 244)", minWidth: "15vw", minHeight: "6vh", marginBottom: "2vh"}}
-                                    onClick={() => this.nextPath('/signIn')}/>
-                                <Button 
-                                    label={"Sign Up"}
-                                    style={{backgroundColor: "rgb(66, 134, 244)", minWidth: "15vw", minHeight: "6vh"}}
-                                    onClick={() => this.nextPath('/signUp')}/>
-                            </div>
-                        </ButtonContainer>
+                        {(localStorage.getItem('yhaToken') === undefined || localStorage.getItem('yhaToken') === null) &&
+                            <ButtonContainer className="col-md-12 text-center">
+                                <div className="btn-group-vertical" style={{marginBottom: "15vh"}}>
+                                    <Button 
+                                        label={"Sign In"}
+                                        style={{backgroundColor: "rgb(66, 134, 244)", minWidth: "15vw", minHeight: "6vh", marginBottom: "2vh"}}
+                                        onClick={() => this.nextPath('/signIn')}/>
+                                    <Button 
+                                        label={"Sign Up"}
+                                        style={{backgroundColor: "rgb(66, 134, 244)", minWidth: "15vw", minHeight: "6vh"}}
+                                        onClick={() => this.nextPath('/signUp')}/>
+                                </div>
+                            </ButtonContainer>
+                        }
                     </ImageContainer>
                     <Announcement img={electricityImg} header="Podwyżki cen prądu" text="Z przykrością informujemy, że od 14.05 b.r. w życie wejdą planowane podwyżki cen prądu."/>
                     <Announcement img={waterImg} header="Lorem Ipsum" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce at tellus nibh. Sed vitae lorem risus. Praesent bibendum est ac tempus sagittis."/>

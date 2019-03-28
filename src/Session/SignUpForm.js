@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import {withRouter} from 'react-router-dom';
+import ReCAPTCHA from "react-google-recaptcha";
 //Interface
 import Button from './../InterfaceUtils/Button';
 import { Input } from './../InterfaceUtils/Input';
@@ -19,7 +20,14 @@ class SignUpForm extends Component {
             password: "",
             name: "",
             lastName: "",
+            captchaTicked: false
         };
+    }
+
+    tickCaptcha = () => {
+        this.setState({
+            captchaTicked: true
+        })
     }
 
     updateEmail = e => {
@@ -47,19 +55,23 @@ class SignUpForm extends Component {
     }
 
     registerUser = () => {
-        axios.post('http://localhost:8081/registration', {
-            "email": this.state.email,
-            "password": this.state.password,
-            "firstName": this.state.name,
-            "lastName": this.state.lastName,
-        })
-        .then(response => {
-            NotificationManager.info('Signed up successfully', '', 3000);
-            this.props.history.push("/");
-        })
-        .catch(function (error) {
-            NotificationManager.error('Please try again', 'Something went wrong', 3000);
-        });
+        if(this.state.captchaTicked === false){
+            NotificationManager.error('Use captcha to sign up', '', 3000);
+        } else{
+            axios.post('http://localhost:8081/registration', {
+                "email": this.state.email,
+                "password": this.state.password,
+                "firstName": this.state.name,
+                "lastName": this.state.lastName,
+            })
+            .then(response => {
+                NotificationManager.info('Signed up successfully', '', 3000);
+                this.props.history.push("/");
+            })
+            .catch(function (error) {
+                NotificationManager.error('Please try again', 'Something went wrong', 3000);
+            });
+        }
     }
 
     render() {
@@ -99,6 +111,13 @@ class SignUpForm extends Component {
                             type="text"
                             required />
 
+                        <ReCAPTCHA
+                            sitekey="Your client site key"
+                            onChange={this.tickCaptcha}
+                            sitekey="6Lf2u5oUAAAAAHvzHMhVsDbxCE_ycfuu_wL6gTS6"
+                            style={{marginTop: "2vh"}}
+                        />
+
                         <ButtonContainer className="col-md-12">
                             <Button 
                                 label={"Sign Up"}
@@ -121,7 +140,8 @@ const Header = styled.div`
     font-size: 45px;
     color: white;
     padding-top: 5vh;
-    @media screen and (max-width: 600px) {
+
+    @media screen and (max-width: 768px) {
         font-size: 38px;
     } 
 `
