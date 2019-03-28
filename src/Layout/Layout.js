@@ -1,7 +1,26 @@
 import React, { Component } from 'react';
 import './LayoutStyle.css';
+import styled from 'styled-components';
+import signOutIcon from '../Images/signOut.png'
+import { connect } from 'react-redux';
+import {NotificationManager} from 'react-notifications';
 
 class Layout extends Component {
+
+    signOut = () => {
+        localStorage.removeItem('yhaToken');
+
+        this.props.dispatch({
+            type: "LOGOUT",
+            data: {
+                isLogged: false
+            }
+          });
+
+        
+        this.props.history.push("/");
+    }
+
     render() {
         return (
             <div>
@@ -15,6 +34,9 @@ class Layout extends Component {
                             <a className="nav-item nav-link active" href="/">Home <span className="sr-only">(current)</span></a>
                             <a className="nav-item nav-link" href="/">Features</a>
                             <a className="nav-item nav-link" href="/">Pricing</a>
+                            <SignOut className="nav-item nav-link" href="/" onClick={this.signOut}>
+                                <img src={signOutIcon} width="40" height="38" className="d-inline-block align-top" alt="" />
+                            </SignOut>
                         </div>
                     </div>
                 </nav>
@@ -23,4 +45,15 @@ class Layout extends Component {
     }
 }
 
-export default Layout;
+export default connect()(Layout);
+
+const SignOut = styled.a`
+    position: absolute;
+    right: 10px;
+    bottom: 1px;
+
+    @media screen and (max-width: 990px) {
+        position: relative;
+        margin-left: 10px;
+    } 
+`
