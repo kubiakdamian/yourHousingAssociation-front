@@ -68,8 +68,8 @@ class SignUpForm extends Component {
                 NotificationManager.info('Signed up successfully', '', 3000);
                 this.props.history.push("/");
             })
-            .catch(function (error) {
-                NotificationManager.error('Please try again', 'Something went wrong', 3000);
+            .catch(error => {
+                NotificationManager.error('Please try again', 'Something went wrong', 3000); 
             });
         }
     }
@@ -112,9 +112,8 @@ class SignUpForm extends Component {
                             required />
 
                         <ReCAPTCHA
-                            sitekey="Your client site key"
-                            onChange={this.tickCaptcha}
                             sitekey="6Lf2u5oUAAAAAHvzHMhVsDbxCE_ycfuu_wL6gTS6"
+                            onChange={this.tickCaptcha}
                             style={{marginTop: "2vh"}}
                         />
 

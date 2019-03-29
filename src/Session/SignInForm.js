@@ -51,8 +51,14 @@ class SignInForm extends Component {
 
             this.props.history.push("/");
         })
-        .catch(function (error) {
-            NotificationManager.error('Please try again', 'Something went wrong', 3000);
+        .catch(error => {
+            if(error.response.data.code === 'UNA'){
+                NotificationManager.error('', 'User not activated', 3000);
+            } else if(error.response.data.code === 'UNF'){
+                NotificationManager.error('', 'User not found', 3000);
+            } else{
+                NotificationManager.error('Please try again', 'Something went wrong', 3000);
+            }
         });
     }
 
