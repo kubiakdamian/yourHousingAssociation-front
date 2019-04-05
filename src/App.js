@@ -12,6 +12,7 @@ import Layout from './Layout/Layout';
 import Home from './Home/Home.js';
 import SignIn from './Session/SignIn';
 import SignUp from './Session/SignUp';
+import Charges from './Charges/Charges';
 
 
 class App extends Component {
@@ -22,6 +23,7 @@ class App extends Component {
 			<Route exact path="/" component={Home}/>
       <Route path="/signIn" component={SignIn}/>
       <Route path="/signUp" component={SignUp}/>
+      <Route path="/charges" component={Charges}/>
       <NotificationContainer />
 		</Router>
     );

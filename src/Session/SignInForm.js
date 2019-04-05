@@ -45,7 +45,8 @@ class SignInForm extends Component {
             this.props.dispatch({
                 type: "LOGIN",
                 data: {
-                    isLogged: true
+                    isLogged: true,
+                    role: response.data.role
                 }
               });
 

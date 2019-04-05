@@ -30,7 +30,7 @@ class Layout extends Component {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div className="navbar-nav">
-                            <a className="nav-item nav-link" href="/">Charges</a>
+                            <a className="nav-item nav-link" href="/charges">Charges</a>
                             <SignOut className="nav-item nav-link" href="/" onClick={this.signOut}>
                                 <img src={signOutIcon} width="40" height="38" className="d-inline-block align-top" alt="" />
                             </SignOut>
