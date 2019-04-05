@@ -13,10 +13,10 @@ class UserDataForm extends Component {
 
         this.state = {
             city: "",
-            blockNumber: 0,
+            blockNumber: "",
             street: "",
-            streetNumber: 0,
-            apartmentNumber: 0,
+            streetNumber: "",
+            apartmentNumber: "",
             postalCode: ""
         };
     }
@@ -76,7 +76,7 @@ class UserDataForm extends Component {
     render() {
         return (
             <div>
-                <div className="col-md-10 ml-auto mr-auto">
+                <div className="col-md-10 ml-auto mr-auto" style={{paddingTop: "2vh"}}>
                     <Input
                         onChange={this.updateCity}
                         value={this.state.city}
@@ -141,7 +141,7 @@ class UserDataForm extends Component {
 export default UserDataForm;
 
 const ButtonContainer = styled.div`
-    margin-top: 7vh;
+    /* margin-top: 7vh; */
     text-align: center;
     padding-bottom: 3vh;
 `

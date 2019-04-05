@@ -114,8 +114,8 @@ const ImageContainer = styled.div`
     position: relative;
 
     @media screen and (max-width: 768px) {
-        min-height: 80vh;
-        max-height: 80vh;
+        min-height: 100vh;
+        max-height: 100vh;
     } 
 `;
 
@@ -130,7 +130,7 @@ const ButtonContainer = styled.div`
 const PersonalData = styled.div`
     margin-top: 3vh;
     min-height: 35vh;
-    max-height: 35vh;
+    /* max-height: 35vh; */
     background-color: rgb(39, 41, 45);
     border-radius: 10px;
     opacity: 0.99;

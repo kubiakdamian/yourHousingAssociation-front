@@ -12,6 +12,6 @@ export default Input;
 const StyledInput = styled.input`
     margin-top: 2vh;
     width: 100%;
-    height: 40px;
+    height: 35px;
     margin-bottom: 10px;
 `;
