@@ -5,11 +5,13 @@ import Announcement from './Announcement';
 import Header from './../InterfaceUtils/Header';
 import { connect } from "react-redux";
 import axios from 'axios';
+import _ from 'lodash';
 //images - all images come from Pixabay
 import homeImg from '../Images/home.jpg';
 import electricityImg from '../Images/electricity.jpg';
 import waterImg from '../Images/water.jpg';
 import gasImg from '../Images/gas.jpg';
+import UserDataForm from './UserDataForm';
 
 
 class Home extends Component {
@@ -67,12 +69,19 @@ class Home extends Component {
 
                         {(this.props.user.role === "TENANT" && this.props.user.isLogged) &&
                             <PersonalData className="col-md-5 ml-auto mr-auto">
-                                <Greeting>Hello {this.state.userData.firstName} {this.state.userData.lastName}</Greeting>
-                                <ul className="list-group" style={{fontWeight: "bold", textAlign: "center", marginTop: "3vh"}}>
-                                    <li className="list-group-item borderless">{this.state.userData.city}, {this.state.userData.street} {this.state.userData.streetNumber} m.{this.state.userData.apartmentNumber}</li>
-                                    <li className="list-group-item">{this.state.userData.postalCode}</li>
-                                    <li className="list-group-item">Block: {this.state.userData.blockNumber}</li>
-                                </ul>
+                            {_.isEmpty(this.state.userData) === false ?
+                                <div>
+                                    <Greeting>Hello {this.state.userData.firstName} {this.state.userData.lastName}</Greeting>
+                                    <ul className="list-group" style={{fontWeight: "bold", textAlign: "center", marginTop: "3vh"}}>
+                                        <li className="list-group-item borderless">{this.state.userData.city}, {this.state.userData.street} {this.state.userData.streetNumber} m.{this.state.userData.apartmentNumber}</li>
+                                        <li className="list-group-item">{this.state.userData.postalCode}</li>
+                                        <li className="list-group-item">Block: {this.state.userData.blockNumber}</li>
+                                    </ul>
+                                </div>
+                                :
+                                <UserDataForm getUserAddress={this.getUserData} />
+                            }
+                            
                             </PersonalData>
                         }
 
