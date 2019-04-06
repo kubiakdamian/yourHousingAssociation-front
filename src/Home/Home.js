@@ -12,6 +12,7 @@ import electricityImg from '../Images/electricity.jpg';
 import waterImg from '../Images/water.jpg';
 import gasImg from '../Images/gas.jpg';
 import UserDataForm from './UserDataForm';
+import UserPersonalData from './UserPersonalData';
 
 
 class Home extends Component {
@@ -71,12 +72,16 @@ class Home extends Component {
                             <PersonalData className="col-md-5 ml-auto mr-auto">
                             {_.isEmpty(this.state.userData) === false ?
                                 <div>
-                                    <Greeting>Hello {this.state.userData.firstName} {this.state.userData.lastName}</Greeting>
-                                    <ul className="list-group" style={{fontWeight: "bold", textAlign: "center", marginTop: "3vh"}}>
-                                        <li className="list-group-item borderless">{this.state.userData.city}, {this.state.userData.street} {this.state.userData.streetNumber} m.{this.state.userData.apartmentNumber}</li>
-                                        <li className="list-group-item">{this.state.userData.postalCode}</li>
-                                        <li className="list-group-item">Block: {this.state.userData.blockNumber}</li>
-                                    </ul>
+                                    <UserPersonalData
+                                        firstName={this.state.userData.firstName}
+                                        lastName={this.state.userData.lastName} 
+                                        city={this.state.userData.city}
+                                        street={this.state.userData.street}
+                                        streetNumber={this.state.userData.streetNumber}
+                                        apartmentNumber={this.state.userData.apartmentNumber}
+                                        postalCode={this.state.userData.postalCode}
+                                        blockNumber={this.state.userData.blockNumber}
+                                        isVerified={this.state.userData.verified}/>
                                 </div>
                                 :
                                 <UserDataForm getUserAddress={this.getUserData} />
@@ -136,10 +141,5 @@ const PersonalData = styled.div`
     opacity: 0.99;
 `
 
-const Greeting = styled.div`
-    text-align: center;
-    font-weight: bold;
-    font-size: 30px;
-    color: white;
-`
+
 

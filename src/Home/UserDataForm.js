@@ -141,7 +141,6 @@ class UserDataForm extends Component {
 export default UserDataForm;
 
 const ButtonContainer = styled.div`
-    /* margin-top: 7vh; */
     text-align: center;
     padding-bottom: 3vh;
 `
