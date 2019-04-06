@@ -13,6 +13,7 @@ import Home from './Home/Home.js';
 import SignIn from './Session/SignIn';
 import SignUp from './Session/SignUp';
 import Charges from './Charges/Charges';
+import AddManager from './Session/AddManager';
 
 
 class App extends Component {
@@ -24,6 +25,7 @@ class App extends Component {
       <Route path="/signIn" component={SignIn}/>
       <Route path="/signUp" component={SignUp}/>
       <Route path="/charges" component={Charges}/>
+      <Route path="/addManager" component={AddManager} />
       <NotificationContainer />
 		</Router>
     );

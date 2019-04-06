@@ -30,10 +30,19 @@ class Layout extends Component {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div className="navbar-nav">
-                            <a className="nav-item nav-link" href="/charges">Charges</a>
-                            <SignOut className="nav-item nav-link" href="/" onClick={this.signOut}>
-                                <img src={signOutIcon} width="40" height="38" className="d-inline-block align-top" alt="" />
-                            </SignOut>
+                            {this.props.user.isLogged &&
+                            <div>
+                                {this.props.user.role === "TENANT" &&
+                                    <a className="nav-item nav-link" href="/charges">Charges</a>
+                                }
+                                {this.props.user.role === "ADMIN" &&
+                                    <a className="nav-item nav-link" href="/addManager">Add Manager</a>
+                                }
+                                <SignOut className="nav-item nav-link" href="/" onClick={this.signOut}>
+                                    <img src={signOutIcon} width="40" height="38" className="d-inline-block align-top" alt="" />
+                                </SignOut>
+                            </div>
+                            }
                         </div>
                     </div>
                 </nav>
@@ -42,7 +51,13 @@ class Layout extends Component {
     }
 }
 
-export default connect()(Layout);
+const mapStateToProps = state => {
+    return {
+      user: state.user.user
+    };
+  };
+
+export default connect(mapStateToProps)(Layout);
 
 const SignOut = styled.a`
     position: absolute;

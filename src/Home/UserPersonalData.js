@@ -66,7 +66,7 @@ class UserPersonalData extends Component {
                     </ButtonContainer>
                     </div>
                     :
-                    <div>VERIFIED!</div>
+                    <Greeting style={{color: "#03b500", fontSize: "25px"}}>VERIFIED!</Greeting>
                 }
             </div>
         );
