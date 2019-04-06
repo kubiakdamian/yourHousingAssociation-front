@@ -34,11 +34,13 @@ class SignInForm extends Component {
     }
 
     signInUser = () => {
+        this.props.enableLoading();
         axios.post('http://localhost:8081/user/login', {
             "login": this.state.login,
             "password": this.state.password
         })
         .then(response => {
+            this.props.disableLoading();
             NotificationManager.info('Logged in successfully', '', 3000);
             localStorage.setItem('yhaToken', 'Bearer ' + response.data.token);
 
@@ -53,6 +55,7 @@ class SignInForm extends Component {
             this.props.history.push("/");
         })
         .catch(error => {
+            this.props.disableLoading();
             if(error.response.data.code === 'UNA'){
                 NotificationManager.error('', 'User not activated', 3000);
             } else if(error.response.data.code === 'UNF'){

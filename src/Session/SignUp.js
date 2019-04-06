@@ -4,8 +4,16 @@ import MediaQuery from 'react-responsive';
 import SignUpForm from './SignUpForm';
 import { connect } from 'react-redux';
 import {NotificationManager} from 'react-notifications';
+import AppLoader from '../InterfaceUtils/AppLoader';
 
 class SignUp extends Component {
+    constructor(props){
+        super(props);
+
+        this.state = {
+            loading: false
+        };
+    }
 
     componentDidMount(){
         if(this.props.user.user.isLogged === true) {
@@ -20,31 +28,46 @@ class SignUp extends Component {
             pathname: `/`,
         });
     }
+
+    enableLoading = () => {
+        this.setState({
+            loading: true
+        })
+    }
+
+    disableLoading = () => {
+        this.setState({
+            loading: false
+        })
+    }
     
     render() {
         return (
             <div>
+                {this.state.loading &&
+                    <AppLoader />
+                }   
                 <MediaQuery maxDeviceWidth={800}>
                     <FormContainer className="col-md-8 ml-auto mr-auto">
-                        <SignUpForm />
+                        <SignUpForm enableLoading={this.enableLoading} disableLoading={this.disableLoading} />
                     </FormContainer>
                 </MediaQuery>
 
                 <MediaQuery minDeviceWidth={801} maxDeviceWidth={1000}>
                     <FormContainer className="col-md-6 ml-auto mr-auto">
-                        <SignUpForm />
+                        <SignUpForm enableLoading={this.enableLoading} disableLoading={this.disableLoading} />
                     </FormContainer>
                 </MediaQuery>
 
                 <MediaQuery minDeviceWidth={1001} maxDeviceWidth={1500}>
                     <FormContainer className="col-md-4 ml-auto mr-auto">
-                        <SignUpForm />
+                        <SignUpForm enableLoading={this.enableLoading} disableLoading={this.disableLoading} />
                     </FormContainer>
                 </MediaQuery>
 
                 <MediaQuery minDeviceWidth={1501}>
                     <FormContainer className="col-md-3 ml-auto mr-auto">
-                        <SignUpForm />
+                        <SignUpForm enableLoading={this.enableLoading} disableLoading={this.disableLoading} />
                     </FormContainer>
                 </MediaQuery>
             </div>
@@ -67,7 +90,8 @@ const FormContainer = styled.div`
     margin-top: 15vh;
     min-height: 70vh;
     border-radius: 15px;
-    @media screen and (max-width: 600px) {
+
+    @media screen and (max-width: 768px) {
         margin-top: 3vh;
         min-height: 85vh;
     } 

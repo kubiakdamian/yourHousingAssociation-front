@@ -9,8 +9,6 @@ import { Input } from './../InterfaceUtils/Input';
 //Components
 import {NotificationManager} from 'react-notifications';
 
-
-
 class SignUpForm extends Component {
     constructor(props){
         super(props);
@@ -58,6 +56,7 @@ class SignUpForm extends Component {
         if(this.state.captchaTicked === false){
             NotificationManager.error('Use captcha to sign up', '', 3000);
         } else{
+            this.props.enableLoading();
             axios.post('http://localhost:8081/registration', {
                 "email": this.state.email,
                 "password": this.state.password,
@@ -65,10 +64,12 @@ class SignUpForm extends Component {
                 "lastName": this.state.lastName,
             })
             .then(response => {
+                this.props.disableLoading();
                 NotificationManager.info('Signed up successfully', '', 3000);
                 this.props.history.push("/");
             })
             .catch(error => {
+                this.props.disableLoading();
                 NotificationManager.error('Please try again', 'Something went wrong', 3000); 
             });
         }

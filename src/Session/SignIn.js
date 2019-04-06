@@ -4,8 +4,16 @@ import MediaQuery from 'react-responsive';
 import SignInForm from './SignInForm';
 import { connect } from 'react-redux';
 import {NotificationManager} from 'react-notifications';
+import AppLoader from '../InterfaceUtils/AppLoader';
 
 class SignIn extends Component {
+    constructor(props){
+        super(props);
+
+        this.state = {
+            loading: false
+        };
+    }
 
     componentDidMount(){
         if(this.props.user.user.isLogged === true) {
@@ -21,30 +29,45 @@ class SignIn extends Component {
         });
     }
 
+    enableLoading = () => {
+        this.setState({
+            loading: true
+        })
+    }
+
+    disableLoading = () => {
+        this.setState({
+            loading: false
+        })
+    }
+
     render() {
         return (
             <div>
+                {this.state.loading &&
+                    <AppLoader />
+                }   
                 <MediaQuery maxDeviceWidth={800}>
                     <FormContainer className="col-md-8 ml-auto mr-auto">
-                        <SignInForm />
+                        <SignInForm enableLoading={this.enableLoading} disableLoading={this.disableLoading} />
                     </FormContainer>
                 </MediaQuery>
 
                 <MediaQuery minDeviceWidth={801} maxDeviceWidth={1000}>
                     <FormContainer className="col-md-6 ml-auto mr-auto">
-                        <SignInForm />
+                        <SignInForm enableLoading={this.enableLoading} disableLoading={this.disableLoading} />
                     </FormContainer>
                 </MediaQuery>
 
                 <MediaQuery minDeviceWidth={1001} maxDeviceWidth={1500}>
                     <FormContainer className="col-md-4 ml-auto mr-auto">
-                        <SignInForm />
+                        <SignInForm enableLoading={this.enableLoading} disableLoading={this.disableLoading} />
                     </FormContainer>
                 </MediaQuery>
 
                 <MediaQuery minDeviceWidth={1501}>
                     <FormContainer className="col-md-3 ml-auto mr-auto">
-                        <SignInForm />
+                        <SignInForm enableLoading={this.enableLoading} disableLoading={this.disableLoading} />
                     </FormContainer>
                 </MediaQuery>
             </div>
