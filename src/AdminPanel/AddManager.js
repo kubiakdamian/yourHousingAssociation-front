@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 //Interface
-import Button from './../InterfaceUtils/Button';
-import { Input } from './../InterfaceUtils/Input';
+import Button from '../InterfaceUtils/Button';
+import { Input } from '../InterfaceUtils/Input';
 //Components
 import {NotificationManager} from 'react-notifications';
 

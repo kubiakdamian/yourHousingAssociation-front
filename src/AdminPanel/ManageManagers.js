@@ -35,10 +35,9 @@ class ManageManagers extends Component {
     }
 
     deleteManager = id => {
-        console.log(id);
         axios({ 
-            method: 'post',
-            url: `http://localhost:8081/user/manager/delete/${id}`,
+            method: 'delete',
+            url: `http://localhost:8081/user/manager/${id}`,
             headers: {
                 'Authorization': localStorage.getItem('yhaToken')
             }
@@ -52,7 +51,6 @@ class ManageManagers extends Component {
     }
 
     render() {
-        console.log(this.state.managers);
         return (
             <div className="col-md-6 ml-auto mr-auto">
                 {this.state.managers.map(manager =>
@@ -82,6 +80,10 @@ const ManagerBox = styled.div`
     font-weight: bold;
     font-size: 20px;
     position: relative;
+
+    @media screen and (max-width: 768px) {
+        min-height: 15vh;
+    } 
 `
 
 const ManagerName = styled.div`
@@ -92,8 +94,8 @@ const ManagerName = styled.div`
 
 const DeleteIcon = styled.div`
     position: absolute;
-    top: 15px;
-    right: 30px;
+    top: 18%;
+    right: 3%;
 
     &:hover{
         cursor: pointer;

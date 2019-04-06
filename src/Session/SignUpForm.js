@@ -77,54 +77,53 @@ class SignUpForm extends Component {
     render() {
         return (
             <div>
-                    <Header className="col-md-12">Join us</Header>
-                    <div className="col-md-10 ml-auto mr-auto">
-                        <Input
-                            onChange={this.updateEmail}
-                            value={this.state.email}
-                            placeholder="E-mail"
-                            id="login"
-                            type="email"
-                            required />
+                <Header className="col-md-12">Join us</Header>
+                <div className="col-md-10 ml-auto mr-auto">
+                    <Input
+                        onChange={this.updateEmail}
+                        value={this.state.email}
+                        placeholder="E-mail"
+                        id="login"
+                        type="email"
+                        required />
 
-                        <Input
-                            onChange={this.updatePassword}
-                            value={this.state.password}
-                            placeholder="Password"
-                            id="password"
-                            type="password"
-                            required />
+                    <Input
+                        onChange={this.updatePassword}
+                        value={this.state.password}
+                        placeholder="Password"
+                        id="password"
+                        type="password"
+                        required />
 
-                        <Input
-                            onChange={this.updateName}
-                            value={this.state.name}
-                            placeholder="Name"
-                            id="name"
-                            type="text"
-                            required />
+                    <Input
+                        onChange={this.updateName}
+                        value={this.state.name}
+                        placeholder="Name"
+                        id="name"
+                        type="text"
+                        required />
 
-                       <Input
-                            onChange={this.updateLastName}
-                            value={this.state.lastName}
-                            placeholder="Last name"
-                            id="lastName"
-                            type="text"
-                            required />
+                    <Input
+                        onChange={this.updateLastName}
+                        value={this.state.lastName}
+                        placeholder="Last name"
+                        id="lastName"
+                        type="text"
+                        required />
 
-                        <ReCAPTCHA
-                            sitekey="6Lf2u5oUAAAAAHvzHMhVsDbxCE_ycfuu_wL6gTS6"
-                            onChange={this.tickCaptcha}
-                            style={{marginTop: "2vh"}}
-                        />
+                    <ReCAPTCHA
+                        sitekey="6Lf2u5oUAAAAAHvzHMhVsDbxCE_ycfuu_wL6gTS6"
+                        onChange={this.tickCaptcha}
+                        style={{marginTop: "2vh"}}
+                    />
 
-                        <ButtonContainer className="col-md-12">
-                            <Button 
-                                label={"Sign Up"}
-                                style={{backgroundColor: "rgb(66, 134, 244)", minWidth: "10vw", minHeight: "6vh"}}
-                                onClick={this.registerUser}/>
-                        </ButtonContainer>
-
-                    </div>
+                    <ButtonContainer className="col-md-12">
+                        <Button 
+                            label={"Sign Up"}
+                            style={{backgroundColor: "rgb(66, 134, 244)", minWidth: "10vw", minHeight: "6vh"}}
+                            onClick={this.registerUser}/>
+                    </ButtonContainer>
+                </div>
             </div>
         );
     }
