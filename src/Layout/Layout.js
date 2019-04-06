@@ -33,10 +33,15 @@ class Layout extends Component {
                             {this.props.user.isLogged &&
                             <div>
                                 {this.props.user.role === "TENANT" &&
-                                    <a className="nav-item nav-link" href="/charges">Charges</a>
+                                    <div className="navbar-nav">
+                                        <a className="nav-item nav-link" href="/charges">Charges</a>
+                                    </div>
                                 }
                                 {this.props.user.role === "ADMIN" &&
-                                    <a className="nav-item nav-link" href="/addManager">Add Manager</a>
+                                    <div className="navbar-nav">
+                                        <a className="nav-item nav-link" href="/addManager">Add Manager</a>
+                                        <a className="nav-item nav-link" href="/managers">Managers</a>
+                                    </div>
                                 }
                                 <SignOut className="nav-item nav-link" href="/" onClick={this.signOut}>
                                     <img src={signOutIcon} width="40" height="38" className="d-inline-block align-top" alt="" />
