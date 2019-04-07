@@ -15,6 +15,7 @@ import SignUp from './Session/SignUp';
 import Charges from './Charges/Charges';
 import AddManager from './AdminPanel/AddManager';
 import ManageManagers from './AdminPanel/ManageManagers';
+import AddArticle from './AdminPanel/AddArticle';
 
 
 class App extends Component {
@@ -28,6 +29,7 @@ class App extends Component {
       <Route path="/charges" component={Charges}/>
       <Route path="/addManager" component={AddManager} />
       <Route path="/managers" component={ManageManagers} />
+      <Route path="/addArticle" component={AddArticle} />
       <NotificationContainer />
 		</Router>
     );

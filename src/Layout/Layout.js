@@ -41,6 +41,7 @@ class Layout extends Component {
                                     <div className="navbar-nav">
                                         <a className="nav-item nav-link" href="/addManager">Add Manager</a>
                                         <a className="nav-item nav-link" href="/managers">Managers</a>
+                                        <a className="nav-item nav-link" href="/addArticle">Add article</a>
                                     </div>
                                 }
                                 <SignOut className="nav-item nav-link" href="/" onClick={this.signOut}>
