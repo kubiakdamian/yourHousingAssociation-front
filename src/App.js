@@ -12,7 +12,7 @@ import Layout from './Layout/Layout';
 import Home from './Home/Home.js';
 import SignIn from './Session/SignIn';
 import SignUp from './Session/SignUp';
-import Charges from './Charges/Charges';
+import Charges from './TenantPanel/Charges';
 import AddManager from './AdminPanel/AddManager';
 import ManageManagers from './AdminPanel/ManageManagers';
 import AddArticle from './AdminPanel/AddArticle';
