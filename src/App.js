@@ -16,6 +16,7 @@ import Charges from './Charges/Charges';
 import AddManager from './AdminPanel/AddManager';
 import ManageManagers from './AdminPanel/ManageManagers';
 import AddArticle from './AdminPanel/AddArticle';
+import UnverifiedTenants from './ManagerPanel/UnverifiedTenants';
 
 
 class App extends Component {
@@ -30,6 +31,7 @@ class App extends Component {
       <Route path="/addManager" component={AddManager} />
       <Route path="/managers" component={ManageManagers} />
       <Route path="/addArticle" component={AddArticle} />
+      <Route path="/unverifiedTenants" component={UnverifiedTenants} />
       <NotificationContainer />
 		</Router>
     );

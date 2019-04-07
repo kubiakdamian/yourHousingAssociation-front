@@ -31,7 +31,7 @@ class UserPersonalData extends Component {
             } 
         })
         .then(response => {
-            
+            this.props.getUserData();
         })
         .catch(error => {
             NotificationManager.error('Please try again', 'Something went wrong', 3000);  

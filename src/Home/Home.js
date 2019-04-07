@@ -8,9 +8,6 @@ import axios from 'axios';
 import _ from 'lodash';
 //images - all images come from Pixabay
 import homeImg from '../Images/home.jpg';
-import electricityImg from '../Images/electricity.jpg';
-import waterImg from '../Images/water.jpg';
-import gasImg from '../Images/gas.jpg';
 import UserDataForm from './UserDataForm';
 import UserPersonalData from './UserPersonalData';
 
@@ -96,7 +93,8 @@ class Home extends Component {
                                         apartmentNumber={this.state.userData.apartmentNumber}
                                         postalCode={this.state.userData.postalCode}
                                         blockNumber={this.state.userData.blockNumber}
-                                        isVerified={this.state.userData.verified}/>
+                                        isVerified={this.state.userData.verified}
+                                        getUserData={this.getUserData}/>
                                 </div>
                                 :
                                 <UserDataForm getUserAddress={this.getUserData} />
