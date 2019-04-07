@@ -44,6 +44,11 @@ class Layout extends Component {
                                         <a className="nav-item nav-link" href="/addArticle">Add article</a>
                                     </div>
                                 }
+                                {this.props.user.role === "MANAGER" &&
+                                    <div className="navbar-nav">
+                                        <a className="nav-item nav-link" href="/addManager">Add Manager</a>
+                                    </div>
+                                }
                                 <SignOut className="nav-item nav-link" href="/" onClick={this.signOut}>
                                     <img src={signOutIcon} width="40" height="38" className="d-inline-block align-top" alt="" />
                                 </SignOut>

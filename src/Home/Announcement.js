@@ -7,7 +7,7 @@ class Announcement extends Component {
             <Box className="col-md-8 ml-auto mr-auto">
                     <Header>{this.props.header}</Header>
                     <img
-                        src={`${this.props.img}`}
+                        src={`http://127.0.0.1:8887/${this.props.imageUrl}`}
                         alt = ""
                     />
                     <Text>{this.props.text}</Text>

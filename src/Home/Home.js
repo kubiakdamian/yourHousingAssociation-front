@@ -20,7 +20,8 @@ class Home extends Component {
         super();
 
         this.state = {
-            userData: {}
+            userData: {},
+            articles: [{}]
         }
     }
 
@@ -32,6 +33,7 @@ class Home extends Component {
         if(this.props.user.role === "TENANT" && this.props.user.isLogged){
             this.getUserData();
         }
+        this.getArticles();
     }
 
     getUserData = () => {
@@ -40,6 +42,19 @@ class Home extends Component {
         .then(response => {
             this.setState({
                 userData: response.data
+            })
+        })
+        .catch(error => {
+
+        });
+    }
+
+    getArticles = () => {
+        axios
+        .get(`http://localhost:8081/article/newest`)
+        .then(response => {
+            this.setState({
+                articles: response.data
             })
         })
         .catch(error => {
@@ -91,9 +106,9 @@ class Home extends Component {
                         }
 
                     </ImageContainer>
-                    <Announcement img={electricityImg} header="Podwyżki cen prądu" text="Z przykrością informujemy, że od 14.05 b.r. w życie wejdą planowane podwyżki cen prądu."/>
-                    <Announcement img={waterImg} header="Lorem Ipsum" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce at tellus nibh. Sed vitae lorem risus. Praesent bibendum est ac tempus sagittis."/>
-                    <Announcement img={gasImg} header="Lorem Ipsum" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce at tellus nibh. Sed vitae lorem risus. Praesent bibendum est ac tempus sagittis."/>
+                    {this.state.articles.map(article => 
+                        <Announcement imageUrl={article.imageUrl} header={article.plTitle} text={article.plText}/>
+                    )}
                 </div>
             </div>
         );
