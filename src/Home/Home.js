@@ -105,7 +105,7 @@ class Home extends Component {
 
                     </ImageContainer>
                     {this.state.articles.map(article => 
-                        <Announcement imageUrl={article.imageUrl} header={article.plTitle} text={article.plText}/>
+                        <Announcement key={"article" + article.id} imageUrl={article.imageUrl} header={article.plTitle} text={article.plText}/>
                     )}
                 </div>
             </div>
@@ -127,8 +127,8 @@ const ImageContainer = styled.div`
     background-position: center;
     background-size: cover;
     background-image: url(${homeImg});
-    min-height: 65vh;
-    max-height: 65vh;
+    min-height: 80vh;
+    max-height: 80vh;
     position: relative;
 
     @media screen and (max-width: 768px) {

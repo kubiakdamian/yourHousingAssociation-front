@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import './LayoutStyle.css';
 import styled from 'styled-components';
-import signOutIcon from '../Images/signOut.png'
 import { connect } from 'react-redux';
+//Images
+import signOutIcon from '../Images/signOut.png';
+import polish_flag from '../Images/poland_flag.png';
+import uk_flag from '../Images/uk_flag.png';
+import german_flag from '../Images/german_flag.png';
 
 class Layout extends Component {
 
@@ -20,11 +24,21 @@ class Layout extends Component {
         this.props.history.push("/");
     }
 
+    changeLang = lang => {
+        this.props.dispatch({
+            type: "CHANGE_LANG",
+            data: {
+                language: lang
+            }
+          });
+          console.log(lang);
+    }
+
     render() {
         return (
             <div>
                 <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-                    <a className="navbar-brand" href="/">Navbar</a>
+                    <a className="navbar-brand" href="/">YHA</a>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -54,6 +68,17 @@ class Layout extends Component {
                                 </SignOut>
                             </div>
                             }
+                            <Flags isLogged={this.props.user.isLogged}>
+                                <Flag onClick={() => this.changeLang("PL")}>
+                                    <img src={polish_flag} width="40" height="38" className="d-inline-block align-top" alt="polish_flag" />
+                                </Flag>
+                                <Flag onClick={() => this.changeLang("EN")}>
+                                    <img src={uk_flag} width="40" height="38" className="d-inline-block align-top" alt="uk_flag" />
+                                </Flag>
+                                <Flag onClick={() => this.changeLang("DE")}>
+                                    <img src={german_flag} width="40" height="38" className="d-inline-block align-top" alt="german_flag" />
+                                </Flag>
+                            </Flags>
                         </div>
                     </div>
                 </nav>
@@ -75,8 +100,32 @@ const SignOut = styled.a`
     right: 10px;
     bottom: 1px;
 
-    @media screen and (max-width: 990px) {
+    @media screen and (max-width: 768px) {
         position: relative;
         margin-left: 10px;
+    } 
+`
+
+const Flag = styled.a`
+    float: right;
+    margin-right: 1vw;
+
+    &:hover{
+        cursor: pointer;
+    }
+
+    @media screen and (max-width: 768px) {
+        float: left;
+    } 
+`
+
+const Flags = styled.div`
+    position: absolute;
+    right: ${props => props.isLogged ? '7vw' : '2vw'};
+    bottom: 1.1vh;
+
+    @media screen and (max-width: 768px) {
+        position: relative;
+        margin-left: 6vw;
     } 
 `
