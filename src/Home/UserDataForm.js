@@ -66,7 +66,7 @@ class UserDataForm extends Component {
             } 
         })
         .then(response => {
-            {this.props.getUserAddress()}
+            this.props.getUserAddress()
         })
         .catch(error => {
             NotificationManager.error('Please try again', 'Something went wrong', 3000);  

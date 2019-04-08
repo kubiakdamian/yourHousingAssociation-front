@@ -61,6 +61,7 @@ class ManageManagers extends Component {
                             <DeleteIcon onClick={() => this.deleteManager(manager.id)}>
                                 <img
                                     src={require("../Images/delete_icon.png")}
+                                    alt="delete_icon"
                                 />
                             </DeleteIcon>
                         </ManagerBox>

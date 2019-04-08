@@ -121,11 +121,11 @@ const Flag = styled.a`
 
 const Flags = styled.div`
     position: absolute;
-    right: ${props => props.isLogged ? '7vw' : '2vw'};
+    right: ${props => props.isLogged ? '7vw' : '1vw'};
     bottom: 1.1vh;
 
     @media screen and (max-width: 768px) {
         position: relative;
-        margin-left: 6vw;
+        margin-left: 1vw;
     } 
 `

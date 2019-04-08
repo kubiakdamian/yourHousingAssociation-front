@@ -104,9 +104,11 @@ class Home extends Component {
                         }
 
                     </ImageContainer>
-                    {this.state.articles.map(article => 
-                        <Announcement key={"article" + article.id} imageUrl={article.imageUrl} header={article.plTitle} text={article.plText}/>
-                    )}
+                    {!_.isEmpty(this.state.articles[0]) && 
+                        this.state.articles.map(article => 
+                            <Announcement key={"article" + article.id} imageUrl={article.imageUrl} header={article.plTitle} text={article.plText}/>
+                        )
+                    }
                 </div>
             </div>
         );
