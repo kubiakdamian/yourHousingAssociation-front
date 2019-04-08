@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import {NotificationManager} from 'react-notifications';
+import _ from 'lodash';
 
 class ManageManagers extends Component {
     constructor(props){
@@ -53,16 +54,18 @@ class ManageManagers extends Component {
     render() {
         return (
             <div className="col-md-6 ml-auto mr-auto">
-                {this.state.managers.map(manager =>
-                     <ManagerBox key={"manager" + manager.id}>
-                        <ManagerName>{manager.email}</ManagerName>
-                        <DeleteIcon onClick={() => this.deleteManager(manager.id)}>
-                            <img
-                                src={require("../Images/delete_icon.png")}
-                            />
-                        </DeleteIcon>
-                     </ManagerBox>
-                )}
+                {!_.isEmpty(this.state.managers[0]) &&
+                    this.state.managers.map(manager =>
+                        <ManagerBox key={"manager" + manager.id}>
+                            <ManagerName>{manager.email}</ManagerName>
+                            <DeleteIcon onClick={() => this.deleteManager(manager.id)}>
+                                <img
+                                    src={require("../Images/delete_icon.png")}
+                                />
+                            </DeleteIcon>
+                        </ManagerBox>
+                    )
+                }
             </div>
         );
     }

@@ -15,7 +15,9 @@ class AddManager extends Component {
             email: "",
             password: "",
             name: "",
-            lastName: ""
+            lastName: "",
+            lowBlock: "",
+            highBlock: ""
         };
     }
 
@@ -43,12 +45,26 @@ class AddManager extends Component {
         })
     }
 
+    updateLowBlock = e => {
+        this.setState({
+            lowBlock: e.target.value
+        })
+    }
+
+    updateHighBlock = e => {
+        this.setState({
+            highBlock: e.target.value
+        })
+    }
+
     clearForm = () => {
         this.setState({
             email: "",
             password: "",
             name: "",
-            lastName: ""
+            lastName: "",
+            lowBlock: "",
+            highBlock: ""
         })
     }
 
@@ -63,7 +79,9 @@ class AddManager extends Component {
                 "email": this.state.email,
                 "password": this.state.password,
                 "firstName": this.state.name,
-                "lastName": this.state.lastName
+                "lastName": this.state.lastName,
+                "lowBlock": this.state.lowBlock,
+                "highBlock": this.state.highBlock
             }
         })
         .then(response => {
@@ -110,6 +128,22 @@ class AddManager extends Component {
                             placeholder="Last name"
                             id="lastName"
                             type="text"
+                            required />
+
+                        <Input
+                            onChange={this.updateLowBlock}
+                            value={this.state.lowBlock}
+                            placeholder="Lower range"
+                            id="lowerRangeInput"
+                            type="number"
+                            required />
+
+                        <Input
+                            onChange={this.updateHighBlock}
+                            value={this.state.highBlock}
+                            placeholder="Upper range"
+                            id="upperRangeInput"
+                            type="number"
                             required />
 
                         <ButtonContainer className="col-md-12">
