@@ -61,6 +61,7 @@ class Layout extends Component {
                                 {this.props.user.role === "MANAGER" &&
                                     <div className="navbar-nav">
                                         <a className="nav-item nav-link" href="/unverifiedTenants">Tenants verification keys</a>
+                                        <a className="nav-item nav-link" href="/notAcceptedFees">Fees to accept</a>
                                     </div>
                                 }
                                 <SignOut className="nav-item nav-link" href="/" onClick={this.signOut}>

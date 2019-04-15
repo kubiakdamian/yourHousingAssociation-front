@@ -96,64 +96,64 @@ class AddManager extends Component {
     render() {
         return (
             <FormContainer className="col-md-4 ml-auto mr-auto">
-                    <Header className="col-md-12">Add manager</Header>
-                    <div className="col-md-10 ml-auto mr-auto">
-                        <Input
-                            onChange={this.updateEmail}
-                            value={this.state.email}
-                            placeholder="E-mail"
-                            id="login"
-                            type="email"
-                            required />
+                <Header className="col-md-12">Add manager</Header>
+                <div className="col-md-10 ml-auto mr-auto">
+                    <Input
+                        onChange={this.updateEmail}
+                        value={this.state.email}
+                        placeholder="E-mail"
+                        id="login"
+                        type="email"
+                        required />
 
-                        <Input
-                            onChange={this.updatePassword}
-                            value={this.state.password}
-                            placeholder="Password"
-                            id="password"
-                            type="password"
-                            required />
+                    <Input
+                        onChange={this.updatePassword}
+                        value={this.state.password}
+                        placeholder="Password"
+                        id="password"
+                        type="password"
+                        required />
 
-                        <Input
-                            onChange={this.updateName}
-                            value={this.state.name}
-                            placeholder="Name"
-                            id="name"
-                            type="text"
-                            required />
+                    <Input
+                        onChange={this.updateName}
+                        value={this.state.name}
+                        placeholder="Name"
+                        id="name"
+                        type="text"
+                        required />
 
-                       <Input
-                            onChange={this.updateLastName}
-                            value={this.state.lastName}
-                            placeholder="Last name"
-                            id="lastName"
-                            type="text"
-                            required />
+                    <Input
+                        onChange={this.updateLastName}
+                        value={this.state.lastName}
+                        placeholder="Last name"
+                        id="lastName"
+                        type="text"
+                        required />
 
-                        <Input
-                            onChange={this.updateLowBlock}
-                            value={this.state.lowBlock}
-                            placeholder="Lower range"
-                            id="lowerRangeInput"
-                            type="number"
-                            required />
+                    <Input
+                        onChange={this.updateLowBlock}
+                        value={this.state.lowBlock}
+                        placeholder="Lower range"
+                        id="lowerRangeInput"
+                        type="number"
+                        required />
 
-                        <Input
-                            onChange={this.updateHighBlock}
-                            value={this.state.highBlock}
-                            placeholder="Upper range"
-                            id="upperRangeInput"
-                            type="number"
-                            required />
+                    <Input
+                        onChange={this.updateHighBlock}
+                        value={this.state.highBlock}
+                        placeholder="Upper range"
+                        id="upperRangeInput"
+                        type="number"
+                        required />
 
-                        <ButtonContainer className="col-md-12">
-                            <Button 
-                                label={"Add"}
-                                style={{backgroundColor: "rgb(66, 134, 244)", minWidth: "10vw", minHeight: "6vh"}}
-                                onClick={this.addManager}/>
-                        </ButtonContainer>
+                    <ButtonContainer className="col-md-12">
+                        <Button 
+                            label={"Add"}
+                            style={{backgroundColor: "rgb(66, 134, 244)", minWidth: "10vw", minHeight: "6vh"}}
+                            onClick={this.addManager}/>
+                    </ButtonContainer>
 
-                    </div>
+                </div>
             </FormContainer>
         );
     }
