@@ -26,11 +26,16 @@ class Home extends Component {
         this.props.history.push(path);
     }
 
-    componentDidMount(){
+    componentWillMount(){
         if(this.props.user.role === "TENANT" && this.props.user.isLogged){
             this.getUserData();
         }
-        this.getArticles();
+
+        this.getArticles(this.props.language.language.language);
+    }
+
+    componentWillReceiveProps(nextProps){
+        this.getArticles(nextProps.language.language.language);
     }
 
     getUserData = () => {
@@ -46,9 +51,9 @@ class Home extends Component {
         });
     }
 
-    getArticles = () => {
+    getArticles = lang => {
         axios
-        .get(`http://localhost:8081/article/newest`)
+        .get(`http://localhost:8081/article/newest/${lang}`)
         .then(response => {
             this.setState({
                 articles: response.data
@@ -106,7 +111,7 @@ class Home extends Component {
                     </ImageContainer>
                     {!_.isEmpty(this.state.articles[0]) && 
                         this.state.articles.map(article => 
-                            <Announcement key={"article" + article.id} imageUrl={article.imageUrl} header={article.plTitle} text={article.plText}/>
+                            <Announcement key={"article" + article.id} imageUrl={article.imageUrl} header={article.title} text={article.text}/>
                         )
                     }
                 </div>
@@ -117,7 +122,8 @@ class Home extends Component {
 
 const mapStateToProps = state => {
     return {
-      user: state.user.user
+      user: state.user.user,
+      language: state.lang
     };
   };
 
@@ -150,7 +156,6 @@ const ButtonContainer = styled.div`
 const PersonalData = styled.div`
     margin-top: 3vh;
     min-height: 35vh;
-    /* max-height: 35vh; */
     background-color: rgb(39, 41, 45);
     border-radius: 10px;
     opacity: 0.99;

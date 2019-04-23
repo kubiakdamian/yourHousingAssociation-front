@@ -34,7 +34,6 @@ class Charges extends Component {
             }
         })
         .then(response => {
-            console.log(response.data);
             this.setState({
                 isFeeFulfilled: response.data
             })

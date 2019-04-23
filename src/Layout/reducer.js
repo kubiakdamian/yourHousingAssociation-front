@@ -1,5 +1,5 @@
 const initialStateUser = {
-    language: "PL"
+    language: "en"
   };
   
   const lang = (state = initialStateUser, action) => {

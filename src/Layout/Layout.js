@@ -31,7 +31,6 @@ class Layout extends Component {
                 language: lang
             }
           });
-          console.log(lang);
     }
 
     render() {
@@ -70,13 +69,13 @@ class Layout extends Component {
                             </div>
                             }
                             <Flags isLogged={this.props.user.isLogged}>
-                                <Flag onClick={() => this.changeLang("PL")}>
+                                <Flag onClick={() => this.changeLang("pl")}>
                                     <img src={polish_flag} width="40" height="38" className="d-inline-block align-top" alt="polish_flag" />
                                 </Flag>
-                                <Flag onClick={() => this.changeLang("EN")}>
+                                <Flag onClick={() => this.changeLang("en")}>
                                     <img src={uk_flag} width="40" height="38" className="d-inline-block align-top" alt="uk_flag" />
                                 </Flag>
-                                <Flag onClick={() => this.changeLang("DE")}>
+                                <Flag onClick={() => this.changeLang("de")}>
                                     <img src={german_flag} width="40" height="38" className="d-inline-block align-top" alt="german_flag" />
                                 </Flag>
                             </Flags>
