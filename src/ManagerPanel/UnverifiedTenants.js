@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {NotificationManager} from 'react-notifications';
 import styled from 'styled-components';
 import axios from 'axios';
+import { FormattedMessage } from "react-intl";
 //Interface
 import Button from '../InterfaceUtils/Button';
 import { Input } from '../InterfaceUtils/Input';
@@ -42,7 +43,11 @@ class UnverifiedTenants extends Component {
     render() {
         return (
             <div className="col-md-6 ml-auto mr-auto"> 
-                <label htmlFor="enTitleInput" style={{marginTop: "2vh", color: "black", fontWeight: "bold"}}>TENANT EMAIL:</label>
+                <label htmlFor="enTitleInput" style={{marginTop: "2vh", color: "black", fontWeight: "bold"}}>
+                    <FormattedMessage 
+                        id="tenant.email"
+                        defaultMessage="Tenant email:"/> 
+                </label>
                 <Input
                     onChange={this.updateTenantEmail}
                     value={this.state.tenantEmail}
@@ -54,7 +59,11 @@ class UnverifiedTenants extends Component {
 
                 <ButtonContainer className="col-md-12">
                     <Button 
-                        label={"Search"}
+                        label={
+                            <FormattedMessage 
+                                id="search"
+                                defaultMessage="Search"/> 
+                        }
                         style={{backgroundColor: "rgb(66, 134, 244)", minWidth: "10vw", minHeight: "6vh"}}
                         onClick={this.getTenant}/>
                 </ButtonContainer>

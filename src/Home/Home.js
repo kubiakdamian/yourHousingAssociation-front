@@ -6,6 +6,7 @@ import Header from './../InterfaceUtils/Header';
 import { connect } from "react-redux";
 import axios from 'axios';
 import _ from 'lodash';
+import { FormattedMessage } from "react-intl";
 //images - all images come from Pixabay
 import homeImg from '../Images/home.jpg';
 import UserDataForm from './UserDataForm';

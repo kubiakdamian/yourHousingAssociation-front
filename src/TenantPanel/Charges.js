@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import Header from '../InterfaceUtils/Header';
 import axios from 'axios';
+import { FormattedMessage } from "react-intl";
 //Interface
 import Button from '../InterfaceUtils/Button';
 import { Input } from '../InterfaceUtils/Input';
@@ -98,13 +99,25 @@ class Charges extends Component {
     render() {
         return (
             <div>
-                <Header header="Charges"/>
+                <Header header={
+                    <FormattedMessage 
+                        id="tenant.charges"
+                        defaultMessage="Charges"/>
+                }/>
                 {this.state.isFeeFulfilled ?
-                    <Info className="col-md-4 ml-auto mr-auto">You've already fulfilled a fee.</Info>
+                    <Info className="col-md-4 ml-auto mr-auto">
+                        <FormattedMessage 
+                            id="tenant.fee.status"
+                            defaultMessage="You've already fulfilled a fee."/>
+                    </Info>
                     :
                     <Box className="col-md-6 ml-auto mr-auto">
                         <div className="col-md-6 ml-auto mr-auto" style={{paddingTop: "5vh"}}>
-                        <label htmlFor="enTitleInput" style={{marginTop: "2vh", color: "black", fontWeight: "bold"}}>Gas:</label>
+                        <label htmlFor="enTitleInput" style={{marginTop: "2vh", color: "black", fontWeight: "bold"}}>
+                            <FormattedMessage 
+                                id="tenant.gas"
+                                defaultMessage="Gas:"/>
+                        </label>
                         <Input
                             onChange={this.updateGas}
                             value={this.state.gas}
@@ -115,7 +128,11 @@ class Charges extends Component {
                             style={{marginTop: "0"}}
                             required />
 
-                        <label htmlFor="enTitleInput" style={{marginTop: "2vh", color: "black", fontWeight: "bold"}}>Cold water:</label>
+                        <label htmlFor="enTitleInput" style={{marginTop: "2vh", color: "black", fontWeight: "bold"}}>
+                            <FormattedMessage 
+                                id="tenant.coldWater"
+                                defaultMessage="Cold water:"/>
+                        </label>
                         <Input
                             onChange={this.updateColdWater}
                             value={this.state.coldWater}
@@ -126,7 +143,11 @@ class Charges extends Component {
                             style={{marginTop: "0"}}
                             required />
 
-                        <label htmlFor="enTitleInput" style={{marginTop: "2vh", color: "black", fontWeight: "bold"}}>Hot water:</label>
+                        <label htmlFor="enTitleInput" style={{marginTop: "2vh", color: "black", fontWeight: "bold"}}>
+                            <FormattedMessage 
+                                id="tenant.hotWater"
+                                defaultMessage="Hot water:"/>
+                        </label>
                         <Input
                             onChange={this.updateHotWater}
                             value={this.state.hotWater}
@@ -137,7 +158,11 @@ class Charges extends Component {
                             style={{marginTop: "0"}}
                             required />
 
-                        <label htmlFor="enTitleInput" style={{marginTop: "2vh", color: "black", fontWeight: "bold"}}>Sewage:</label>
+                        <label htmlFor="enTitleInput" style={{marginTop: "2vh", color: "black", fontWeight: "bold"}}>
+                            <FormattedMessage 
+                                id="tenant.sewage"
+                                defaultMessage="Sewage:"/>
+                        </label>
                        <Input
                             onChange={this.updateSewage}
                             value={this.state.sewage}
@@ -148,7 +173,11 @@ class Charges extends Component {
                             style={{marginTop: "0"}}
                             required />
 
-                        <label htmlFor="enTitleInput" style={{marginTop: "2vh", color: "black", fontWeight: "bold"}}>Heating:</label>
+                        <label htmlFor="enTitleInput" style={{marginTop: "2vh", color: "black", fontWeight: "bold"}}>
+                            <FormattedMessage 
+                                id="tenant.heating"
+                                defaultMessage="Heating:"/>
+                        </label>
                         <Input
                             onChange={this.updateHeating}
                             value={this.state.heating}
@@ -159,7 +188,11 @@ class Charges extends Component {
                             style={{marginTop: "0"}}
                             required />
 
-                        <label htmlFor="enTitleInput" style={{marginTop: "2vh", color: "black", fontWeight: "bold"}}>Repair fund:</label>
+                        <label htmlFor="enTitleInput" style={{marginTop: "2vh", color: "black", fontWeight: "bold"}}>
+                            <FormattedMessage 
+                                id="tenant.repairFund"
+                                defaultMessage="Repair Fund:"/>
+                        </label>
                         <Input
                             onChange={this.updateRepairFund}
                             value={this.state.repairFund}
@@ -172,7 +205,9 @@ class Charges extends Component {
 
                         <ButtonContainer className="col-md-12">
                             <Button 
-                                label={"Add"}
+                                label={<FormattedMessage 
+                                    id="add"
+                                    defaultMessage="Add"/>}
                                 style={{backgroundColor: "rgb(66, 134, 244)", minWidth: "10vw", minHeight: "6vh"}}
                                 onClick={this.addFee}/>
                         </ButtonContainer>

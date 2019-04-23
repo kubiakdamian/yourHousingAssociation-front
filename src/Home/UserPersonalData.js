@@ -6,6 +6,7 @@ import Button from './../InterfaceUtils/Button';
 import { Input } from './../InterfaceUtils/Input';
 //Components
 import {NotificationManager} from 'react-notifications';
+import { FormattedMessage } from "react-intl";
 
 class UserPersonalData extends Component {
     constructor(props){
@@ -41,7 +42,11 @@ class UserPersonalData extends Component {
     render() {
         return (
             <div>
-                <Greeting>Hello {this.props.firstName} {this.props.lastName}</Greeting>
+                <Greeting>                        
+                    <FormattedMessage 
+                        id="hello"
+                        defaultMessage="Hello"/> {this.props.firstName} {this.props.lastName}
+                </Greeting>
                 <ul className="list-group" style={{fontWeight: "bold", textAlign: "center", marginTop: "3vh"}}>
                     <li className="list-group-item borderless">{this.props.city}, {this.props.street} {this.props.streetNumber} m.{this.props.apartmentNumber}</li>
                     <li className="list-group-item">{this.props.postalCode}</li>
@@ -66,7 +71,11 @@ class UserPersonalData extends Component {
                     </ButtonContainer>
                     </div>
                     :
-                    <Greeting style={{color: "#03b500", fontSize: "25px"}}>VERIFIED!</Greeting>
+                    <Greeting style={{color: "#03b500", fontSize: "25px"}}>
+                        <FormattedMessage 
+                            id="verified"
+                            defaultMessage="Verified"/>
+                    </Greeting>
                 }
             </div>
         );

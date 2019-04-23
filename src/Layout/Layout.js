@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './LayoutStyle.css';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
+import { FormattedMessage } from "react-intl";
 //Images
 import signOutIcon from '../Images/signOut.png';
 import polish_flag from '../Images/poland_flag.png';
@@ -47,20 +48,44 @@ class Layout extends Component {
                             <div>
                                 {this.props.user.role === "TENANT" &&
                                     <div className="navbar-nav">
-                                        <a className="nav-item nav-link" href="/charges">Charges</a>
+                                        <a className="nav-item nav-link" href="/charges">
+                                            <FormattedMessage 
+                                                id="tenant.charges"
+                                                defaultMessage="Charges"/> 
+                                        </a>
                                     </div>
                                 }
                                 {this.props.user.role === "ADMIN" &&
                                     <div className="navbar-nav">
-                                        <a className="nav-item nav-link" href="/addManager">Add Manager</a>
-                                        <a className="nav-item nav-link" href="/managers">Managers</a>
-                                        <a className="nav-item nav-link" href="/addArticle">Add article</a>
+                                        <a className="nav-item nav-link" href="/addManager">
+                                            <FormattedMessage 
+                                                id="admin.addManager"
+                                                defaultMessage="Add manager"/>
+                                        </a>
+                                        <a className="nav-item nav-link" href="/managers">
+                                            <FormattedMessage 
+                                                id="admin.viewManagers"
+                                                defaultMessage="Managers"/>
+                                        </a>
+                                        <a className="nav-item nav-link" href="/addArticle">
+                                            <FormattedMessage 
+                                                id="admin.addArticle"
+                                                defaultMessage="Add article"/>
+                                        </a>
                                     </div>
                                 }
                                 {this.props.user.role === "MANAGER" &&
                                     <div className="navbar-nav">
-                                        <a className="nav-item nav-link" href="/unverifiedTenants">Tenants verification keys</a>
-                                        <a className="nav-item nav-link" href="/notAcceptedFees">Fees to accept</a>
+                                        <a className="nav-item nav-link" href="/unverifiedTenants">
+                                            <FormattedMessage 
+                                                id="manager.tenantsVerificationKeys"
+                                                defaultMessage="Tenants verification keys"/>
+                                        </a>
+                                        <a className="nav-item nav-link" href="/notAcceptedFees">
+                                            <FormattedMessage 
+                                                id="manager.feesToAccept"
+                                                defaultMessage="Fees to accept"/>
+                                        </a>
                                     </div>
                                 }
                                 <SignOut className="nav-item nav-link" href="/" onClick={this.signOut}>
