@@ -70,7 +70,7 @@ class Home extends Component {
             <div className="container-fluid">
                 <div className="row">
                     <ImageContainer className="col-md-12">
-                        <Header header="Your Housing Association" />
+                        <Header header="Your Housing Association" style={{color: "white"}}/>
                         {(localStorage.getItem('yhaToken') === undefined || localStorage.getItem('yhaToken') === null) &&
                             <ButtonContainer className="col-md-12 text-center">
                                 <div className="btn-group-vertical" style={{marginBottom: "15vh"}}>

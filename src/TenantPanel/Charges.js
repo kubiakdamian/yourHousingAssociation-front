@@ -6,6 +6,7 @@ import { FormattedMessage } from "react-intl";
 //Interface
 import Button from '../InterfaceUtils/Button';
 import { Input } from '../InterfaceUtils/Input';
+import Payment from './Payment';
 
 class Charges extends Component {
     constructor(props){
@@ -18,7 +19,9 @@ class Charges extends Component {
             hotWater: "",
             sewage: "",
             heating: "",
-            repairFund: ""
+            repairFund: "",
+            isFeeVerified: false,
+            isFeePaid: false
         };
     }
 
@@ -37,6 +40,27 @@ class Charges extends Component {
         .then(response => {
             this.setState({
                 isFeeFulfilled: response.data
+            })
+
+            this.checkFeeStatus();
+        })
+        .catch(error => {
+
+        }); 
+    }
+
+    checkFeeStatus = () => {
+        axios({ 
+            method: 'get',
+            url: `http://localhost:8081/fee/status`,
+            headers: {
+                'Authorization': localStorage.getItem('yhaToken')
+            }
+        })
+        .then(response => {
+            this.setState({
+                isFeeVerified: response.data.verified,
+                isFeePaid: response.data.paid
             })
         })
         .catch(error => {
@@ -105,11 +129,24 @@ class Charges extends Component {
                         defaultMessage="Charges"/>
                 }/>
                 {this.state.isFeeFulfilled ?
-                    <Info className="col-md-4 ml-auto mr-auto">
-                        <FormattedMessage 
-                            id="tenant.fee.status"
-                            defaultMessage="You've already fulfilled a fee."/>
-                    </Info>
+                    <div>
+                        {this.state.isFeeVerified ?
+                        <div>
+                            {this.state.isFeePaid ?
+                                <div>PAID AND VERIFIED</div>
+                                :
+                                // <div>PAY</div>    
+                                <Payment></Payment>
+                            }
+                        </div>
+                        :
+                        <Info className="col-md-4 ml-auto mr-auto">
+                            <FormattedMessage 
+                                id="tenant.fee.status.verification"
+                                defaultMessage="Fee under verification."/>
+                        </Info>
+                        }
+                    </div>
                     :
                     <Box className="col-md-6 ml-auto mr-auto">
                         <div className="col-md-6 ml-auto mr-auto" style={{paddingTop: "5vh"}}>

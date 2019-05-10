@@ -9,6 +9,7 @@
     "lodash": "^4.17.11",
     "popper.js": "^1.14.7",
     "react": "^16.8.4",
+    "react-credit-cards": "^0.7.0",
     "react-dom": "^16.8.4",
     "react-google-recaptcha": "^1.0.5",
     "react-intl": "^2.8.0",

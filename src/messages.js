@@ -4,7 +4,7 @@ export default {
         'admin.viewManagers': "Managers",
         'admin.addArticle': "Add article",
         'tenant.charges': "Charges",
-        'tenant.fee.status': "You've already fulfilled a fee.",
+        'tenant.fee.status.verification': "Fee under verification.",
         'tenant.gas': "Gas:",
         'tenant.coldWater': "Cold water:",
         'tenant.hotWater': "Hot water:",
@@ -17,14 +17,16 @@ export default {
         'tenant.email': "Tenant email:",
         'verified': "verified",
         'hello': "Hello",
-        'add': 'Add'
+        'add': 'Add',
+        'payment.clear.form': 'Clear form',
+        'payment.pay': 'Pay'
     },
     pl: {
         'admin.addManager': "Dodaj managera",
         'admin.viewManagers': "Managerowie",
         'admin.addArticle': "Dodaj artykuł",
         'tenant.charges': "Rachunki",
-        'tenant.fee.status': "Rachunek został już wypełniony.",
+        'tenant.fee.status.verification': "Rachunek w trakcie weryfikacji.",
         'tenant.gas': "Gaz:",
         'tenant.coldWater': "Zimna woda:",
         'tenant.hotWater': "Ciepła woda:",
@@ -37,14 +39,16 @@ export default {
         'tenant.email': "Email mieszkańca:",
         'verified': "zweryfikowano",
         'hello': "Witaj",
-        'add': 'Dodaj'
+        'add': 'Dodaj',
+        'payment.clear.form': 'Wyczyść dane',
+        'payment.pay': 'Zapłać'
     },
     de: {
         'admin.addManager': "Manager hinzufügen",
         'admin.viewManagers': "Manager",
         'admin.addArticle': "Artikel hinzufügen",
         'tenant.charges': "Banknoten",
-        'tenant.fee.status': "Sie haben bereits eine Gebühr entrichtet.",
+        'tenant.fee.status.verification': "Rechnung während der Überprüfung.",
         'tenant.gas': "Gas:",
         'tenant.coldWater': "Kaltes Wasser:",
         'tenant.hotWater': "Heiß water:",
@@ -57,6 +61,8 @@ export default {
         'tenant.email': "E-Mail-Einwohner:",
         'verified': "verifiziert",
         'hello': "Hallo",
-        'add': 'Hinzufügen'
+        'add': 'Hinzufügen',
+        'payment.clear.form': 'Klare Form',
+        'payment.pay': 'Zahlen'
     }
 }
