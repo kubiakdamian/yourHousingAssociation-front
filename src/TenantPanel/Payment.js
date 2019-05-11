@@ -113,6 +113,8 @@ class Payment extends Component {
         const { number, name, expiry} = this.state;
         return (
             <Container className="col-md-6 ml-auto mr-auto">
+                <Amount className="col-md-12">suma: {this.props.amount}zł</Amount>
+
                 <Cards
                     number={number}
                     name={name}
@@ -199,10 +201,18 @@ const ButtonContainer = styled.div`
 `
 
 const Container = styled.div`
-    padding-top: 5vh;
     padding-bottom: 5vh;
     background: rgb(145,145,145);
     background: radial-gradient(circle, rgba(145,145,145,1) 0%, rgba(0,0,0,1) 100%);
     border: 1px solid black;
     border-radius: 10px;
+`
+
+const Amount = styled.div`
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
 `

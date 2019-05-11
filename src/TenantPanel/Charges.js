@@ -22,7 +22,8 @@ class Charges extends Component {
             heating: "",
             repairFund: "",
             isFeeVerified: false,
-            isFeePaid: false
+            isFeePaid: false,
+            amountToPay: ""
         };
     }
 
@@ -61,7 +62,8 @@ class Charges extends Component {
         .then(response => {
             this.setState({
                 isFeeVerified: response.data.verified,
-                isFeePaid: response.data.paid
+                isFeePaid: response.data.paid,
+                amountToPay: response.data.amount
             })
         })
         .catch(error => {
@@ -145,7 +147,7 @@ class Charges extends Component {
                                             id="payment.fee.verified"
                                             defaultMessage="Fee is verified and ready to pay."/>
                                     </Info>    
-                                    <Payment />
+                                    <Payment amount={this.state.amountToPay} />
                                 </div>
                             }
                         </div>
