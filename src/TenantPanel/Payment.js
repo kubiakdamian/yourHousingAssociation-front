@@ -13,7 +13,7 @@ class Payment extends Component {
         this.state = {
             number: "",
             name: "",
-            expiry: "",
+            expiry: ""
         };
     }
 
@@ -68,6 +68,7 @@ class Payment extends Component {
                     number={number}
                     name={name}
                     expiry={expiry}
+                    cvc={""}
                 />
 
                 <InputHolder className = "col-md-4 ml-auto mr-auto">

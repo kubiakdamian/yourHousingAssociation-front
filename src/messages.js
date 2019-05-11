@@ -19,7 +19,9 @@ export default {
         'hello': "Hello",
         'add': 'Add',
         'payment.clear.form': 'Clear form',
-        'payment.pay': 'Pay'
+        'payment.pay': 'Pay',
+        'payment.fee.verified': 'Fee is verified and ready to pay.',
+        'fee.paid': 'All fees paid.'
     },
     pl: {
         'admin.addManager': "Dodaj managera",
@@ -41,7 +43,9 @@ export default {
         'hello': "Witaj",
         'add': 'Dodaj',
         'payment.clear.form': 'Wyczyść dane',
-        'payment.pay': 'Zapłać'
+        'payment.pay': 'Zapłać',
+        'payment.fee.verified': 'Rachunek poprawnie zweryfikowany, możesz go opłacić.',
+        'fee.paid': 'Wszystkie rachunki opłacone.'
     },
     de: {
         'admin.addManager': "Manager hinzufügen",
@@ -63,6 +67,8 @@ export default {
         'hello': "Hallo",
         'add': 'Hinzufügen',
         'payment.clear.form': 'Klare Form',
-        'payment.pay': 'Zahlen'
+        'payment.pay': 'Zahlen',
+        'payment.fee.verified': 'Die Gebühr ist verifiziert und zur Zahlung bereit.',
+        'fee.paid': 'Rechnungen bezahlt.'    
     }
 }

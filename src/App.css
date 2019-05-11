@@ -37,6 +37,12 @@ body {
   padding-bottom: 50px;
   min-height: 100vh;
   position: relative;
-  /* Background pattern from Toptal Subtle Patterns */
-  background-image: url(./Images/background.png);
+
+  /* 
+=========================================================================
+ This pattern is downloaded from www.toptal.com/designers/subtlepatterns/ 
+ If you need more, that's where to get'em.
+ ========================================================================
+  */
+  background-image: url(./Images/pipes.png);
 }

@@ -133,10 +133,20 @@ class Charges extends Component {
                         {this.state.isFeeVerified ?
                         <div>
                             {this.state.isFeePaid ?
-                                <div>PAID AND VERIFIED</div>
+                                <Info className="col-md-6 ml-auto mr-auto">
+                                    <FormattedMessage 
+                                        id="fee.paid"
+                                        defaultMessage="All fees paid."/>
+                                </Info>   
                                 :
-                                // <div>PAY</div>    
-                                <Payment></Payment>
+                                <div>
+                                    <Info className="col-md-6 ml-auto mr-auto" style={{fontSize: "25px", marginBottom: "2vh"}}>
+                                        <FormattedMessage 
+                                            id="payment.fee.verified"
+                                            defaultMessage="Fee is verified and ready to pay."/>
+                                    </Info>    
+                                    <Payment />
+                                </div>
                             }
                         </div>
                         :
@@ -272,6 +282,10 @@ const Info = styled.div`
     font-size: 40px;
     color: #3b74ce;
     text-align: center;
+
+    @media screen and (max-width: 768px) {
+        font-size: 25px;
+    } 
 `
 
 const ButtonContainer = styled.div`
