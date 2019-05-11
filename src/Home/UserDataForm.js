@@ -17,7 +17,8 @@ class UserDataForm extends Component {
             street: "",
             streetNumber: "",
             apartmentNumber: "",
-            postalCode: ""
+            postalCode: "",
+            apartmentSize: ""
         };
     }
 
@@ -57,10 +58,16 @@ class UserDataForm extends Component {
         })
     }
 
+    updateApartmentSize = e => {
+        this.setState({
+            apartmentSize: e.target.value
+        })
+    }
+
     setUserAddress = () => {
         axios({ 
             method: 'post',
-            url: `http://localhost:8081/user/address/${this.state.city}/${this.state.blockNumber}/${this.state.street}/${this.state.streetNumber}/${this.state.apartmentNumber}/${this.state.postalCode}`,
+            url: `http://localhost:8081/user/address/${this.state.city}/${this.state.blockNumber}/${this.state.street}/${this.state.streetNumber}/${this.state.apartmentNumber}/${this.state.postalCode}/${this.state.apartmentSize}`,
             headers: {
                 'Authorization': localStorage.getItem('yhaToken')
             } 
@@ -123,6 +130,15 @@ class UserDataForm extends Component {
                         placeholder="Postal code"
                         id="postalCode"
                         type="text"
+                        required />
+
+                    <Input
+                        onChange={this.updateApartmentSize}
+                        value={this.state.apartmentSize}
+                        placeholder="Apartment size"
+                        id="apartmentSize"
+                        type="number"
+                        step="0.1"
                         required />
 
                     <ButtonContainer className="col-md-12">

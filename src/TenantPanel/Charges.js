@@ -7,6 +7,7 @@ import { FormattedMessage } from "react-intl";
 import Button from '../InterfaceUtils/Button';
 import { Input } from '../InterfaceUtils/Input';
 import Payment from './Payment';
+import SubpageHeader from '../InterfaceUtils/SubpageHeader';
 
 class Charges extends Component {
     constructor(props){
@@ -71,7 +72,7 @@ class Charges extends Component {
     addFee = () => {
         axios({ 
             method: 'post',
-            url: `http://localhost:8081/fee/${this.state.gas}/${this.state.coldWater}/${this.state.hotWater}/${this.state.sewage}/${this.state.heating}/${this.state.repairFund}`,
+            url: `http://localhost:8081/fee/${this.state.gas}/${this.state.coldWater}/${this.state.hotWater}/${this.state.sewage}`,
             headers: {
                 'Authorization': localStorage.getItem('yhaToken')
             }
@@ -123,11 +124,10 @@ class Charges extends Component {
     render() {
         return (
             <div>
-                <Header header={
+                <SubpageHeader header={                   
                     <FormattedMessage 
                         id="tenant.charges"
-                        defaultMessage="Charges"/>
-                }/>
+                        defaultMessage="Charges"/>} />
                 {this.state.isFeeFulfilled ?
                     <div>
                         {this.state.isFeeVerified ?
@@ -140,7 +140,7 @@ class Charges extends Component {
                                 </Info>   
                                 :
                                 <div>
-                                    <Info className="col-md-6 ml-auto mr-auto" style={{fontSize: "25px", marginBottom: "2vh"}}>
+                                    <Info className="col-md-6 ml-auto mr-auto" style={{fontSize: "35px", marginBottom: "2vh"}}>
                                         <FormattedMessage 
                                             id="payment.fee.verified"
                                             defaultMessage="Fee is verified and ready to pay."/>
@@ -215,36 +215,6 @@ class Charges extends Component {
                             value={this.state.sewage}
                             placeholder="Sewage"
                             id="sewageInput"
-                            type="number"
-                            step="0.01"
-                            style={{marginTop: "0"}}
-                            required />
-
-                        <label htmlFor="enTitleInput" style={{marginTop: "2vh", color: "black", fontWeight: "bold"}}>
-                            <FormattedMessage 
-                                id="tenant.heating"
-                                defaultMessage="Heating:"/>
-                        </label>
-                        <Input
-                            onChange={this.updateHeating}
-                            value={this.state.heating}
-                            placeholder="Heating"
-                            id="heatingInput"
-                            type="number"
-                            step="0.01"
-                            style={{marginTop: "0"}}
-                            required />
-
-                        <label htmlFor="enTitleInput" style={{marginTop: "2vh", color: "black", fontWeight: "bold"}}>
-                            <FormattedMessage 
-                                id="tenant.repairFund"
-                                defaultMessage="Repair Fund:"/>
-                        </label>
-                        <Input
-                            onChange={this.updateRepairFund}
-                            value={this.state.repairFund}
-                            placeholder="Repair fund"
-                            id="repairFundInput"
                             type="number"
                             step="0.01"
                             style={{marginTop: "0"}}

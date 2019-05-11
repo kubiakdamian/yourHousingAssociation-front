@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import Cards from 'react-credit-cards';
 import 'react-credit-cards/es/styles-compiled.css';
 import { FormattedMessage } from "react-intl";
+import axios from 'axios';
+import {NotificationManager} from 'react-notifications';
 
 class Payment extends Component {
     constructor(props){
@@ -59,11 +61,58 @@ class Payment extends Component {
         })
     }
 
+    generatePDF = () => {
+        const FileDownload = require('js-file-download');
+        axios({ 
+            method: 'get',
+            url: `http://localhost:8081/fee/pdf`,
+            responseType: 'blob',
+            headers: {
+                'Authorization': localStorage.getItem('yhaToken')
+            }
+        })
+        .then(response => {
+            FileDownload(response.data, 'fee.pdf');
+        })
+        .catch(error => {
+
+        }); 
+    }
+
+    payFee = () => {
+        if(this.state.number.length > 0){
+            axios({ 
+                method: 'post',
+                url: `http://localhost:8081/fee/pay`,
+                headers: {
+                    'Authorization': localStorage.getItem('yhaToken')
+                },
+                data: {
+                    cardNumber: this.state.number
+                }
+            })
+            .then(response => {
+                NotificationManager.success("Fee paid successfully", '', 4000);
+                this.clearForm();
+            })
+            .catch(error => {
+                if(error.response.data.code === 'ICN'){
+                    NotificationManager.error("Invalid card number", '', 4000);
+                    this.clearForm();
+                } else {
+                    NotificationManager.error("Please try again later", 'Something went wrong', 4000);
+                }
+            }); 
+        } else {
+            NotificationManager.error("Invalid card number", '', 4000);
+        }
+    }
+
 
     render() {
         const { number, name, expiry} = this.state;
         return (
-            <div className="col-md-6 ml-auto mr-auto">
+            <Container className="col-md-6 ml-auto mr-auto">
                 <Cards
                     number={number}
                     name={name}
@@ -113,7 +162,7 @@ class Payment extends Component {
                             id="payment.pay"
                             defaultMessage="Pay"/>}
                         style={{backgroundColor: "rgb(66, 134, 244)", minWidth: "10vw", minHeight: "3vh", marginTop: "0"}}
-                        onClick={this.addFee}/>
+                        onClick={this.payFee}/>
                 </ButtonContainer>
 
                 <ButtonContainer>
@@ -124,7 +173,16 @@ class Payment extends Component {
                         style={{backgroundColor: "rgb(196, 19, 19)", minWidth: "10vw", minHeight: "3vh"}}
                         onClick={this.clearForm}/>
                 </ButtonContainer>
-            </div>
+
+                <ButtonContainer>
+                    <Button 
+                        label={<FormattedMessage 
+                            id="pdf.generate"
+                            defaultMessage="Generate PDF"/>}
+                        style={{backgroundColor: "rgb(66, 134, 244)", minWidth: "10vw", minHeight: "3vh", marginTop: "0"}}
+                        onClick={this.generatePDF}/>
+                </ButtonContainer>
+            </Container>
         );
     }
 }
@@ -138,4 +196,13 @@ const InputHolder = styled.div`
 const ButtonContainer = styled.div`
     margin-top: 1vh;
     text-align: center;
+`
+
+const Container = styled.div`
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    background: rgb(145,145,145);
+    background: radial-gradient(circle, rgba(145,145,145,1) 0%, rgba(0,0,0,1) 100%);
+    border: 1px solid black;
+    border-radius: 10px;
 `
