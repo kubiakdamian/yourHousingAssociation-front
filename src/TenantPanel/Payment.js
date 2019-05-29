@@ -7,6 +7,7 @@ import 'react-credit-cards/es/styles-compiled.css';
 import { FormattedMessage } from "react-intl";
 import axios from 'axios';
 import {NotificationManager} from 'react-notifications';
+import { connect } from "react-redux";
 
 class Payment extends Component {
     constructor(props){
@@ -65,7 +66,7 @@ class Payment extends Component {
         const FileDownload = require('js-file-download');
         axios({ 
             method: 'get',
-            url: `http://localhost:8081/fee/pdf`,
+            url: `http://localhost:8081/fee/pdf/${this.props.language.language.language}`,
             responseType: 'blob',
             headers: {
                 'Authorization': localStorage.getItem('yhaToken')
@@ -189,7 +190,13 @@ class Payment extends Component {
     }
 }
 
-export default Payment; 
+const mapStateToProps = state => {
+    return {
+      language: state.lang
+    };
+  };
+
+export default connect(mapStateToProps)(Payment); 
 
 const InputHolder = styled.div`
     margin-top: 2vh;

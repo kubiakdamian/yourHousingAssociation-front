@@ -69,8 +69,16 @@ class SignUpForm extends Component {
                 this.props.history.push("/");
             })
             .catch(error => {
+                if(error.response.data.code === "UAE"){
+                    NotificationManager.error('', 'User already exists', 3000); 
+                    this.setState({
+                        email: "",
+                        password: ""
+                    })
+                } else{
+                    NotificationManager.error('Please try again', 'Something went wrong', 3000); 
+                }
                 this.props.disableLoading();
-                NotificationManager.error('Please try again', 'Something went wrong', 3000); 
             });
         }
     }

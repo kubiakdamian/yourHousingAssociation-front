@@ -22,7 +22,9 @@ export default {
         'payment.pay': 'Pay',
         'payment.fee.verified': 'Fee is verified and ready to pay.',
         'fee.paid': 'All fees paid.',
-        'pdf.generate': 'Generate PDF'
+        'pdf.generate': 'Generate PDF',
+        'block': 'Block: ',
+        'apartmentSize': 'Apartment size: '
     },
     pl: {
         'admin.addManager': "Dodaj managera",
@@ -47,7 +49,9 @@ export default {
         'payment.pay': 'Zapłać',
         'payment.fee.verified': 'Rachunek poprawnie zweryfikowany, możesz go opłacić.',
         'fee.paid': 'Wszystkie rachunki opłacone.',
-        'pdf.generate': 'Generuj PDF'
+        'pdf.generate': 'Generuj PDF',
+        'block': 'Blok: ',
+        'apartmentSize': 'Rozmiar mieszkania: '
     },
     de: {
         'admin.addManager': "Manager hinzufügen",
@@ -72,6 +76,8 @@ export default {
         'payment.pay': 'Zahlen',
         'payment.fee.verified': 'Die Gebühr ist verifiziert und zur Zahlung bereit.',
         'fee.paid': 'Rechnungen bezahlt.',
-        'pdf.generate': 'PDF erzeugen'    
+        'pdf.generate': 'PDF erzeugen',
+        'block': 'Block: ',
+        'apartmentSize': 'Die Größe der Wohnung: '
     }
 }

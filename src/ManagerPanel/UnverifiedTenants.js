@@ -69,7 +69,22 @@ class UnverifiedTenants extends Component {
                 </ButtonContainer>
 
                 {!_.isEmpty(this.state.tenant) && 
-                    <TenantBox><span>{this.state.tenant.firstName} {this.state.tenant.lastName} {this.state.tenant.key}</span></TenantBox>
+                    <TenantBox className="row">
+                        <TenantData className="col-md-12">{this.state.tenant.firstName} {this.state.tenant.lastName} {this.state.tenant.key}</TenantData>
+                        <TenantData className="col-md-12">{this.state.tenant.city}, {this.state.tenant.street} {this.state.tenant.streetNumber}</TenantData>
+                        <TenantData className="col-md-12">
+                            <FormattedMessage 
+                                id="block"
+                                defaultMessage="Block: "/> 
+                            {this.state.tenant.blockNumber}
+                        </TenantData>
+                        <TenantData className="col-md-12">
+                            <FormattedMessage 
+                                id="apartmentSize"
+                                defaultMessage="Apartment size: "/> 
+                            {this.state.tenant.apartmentSize}m2
+                        </TenantData>
+                    </TenantBox>
                 }
             </div>
         );
@@ -94,9 +109,9 @@ const TenantBox = styled.div`
     line-height: 7vh;
     color: white;
     font-size: 25px;
+`
 
-    span {
-        display: inline-block;
-        vertical-align: middle;
-    }
+const TenantData = styled.div`
+    display: inline-block;
+    vertical-align: middle;
 `
