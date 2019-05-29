@@ -53,6 +53,11 @@ class Layout extends Component {
                                                 id="tenant.charges"
                                                 defaultMessage="Charges"/> 
                                         </a>
+                                        <a className="nav-item nav-link" href="/chargesHistory">
+                                            <FormattedMessage 
+                                                id="fee.history"
+                                                defaultMessage="Fee history"/> 
+                                        </a>
                                     </div>
                                 }
                                 {this.props.user.role === "ADMIN" &&

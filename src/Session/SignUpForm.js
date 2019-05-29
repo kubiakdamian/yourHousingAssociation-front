@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import axios from 'axios';
 import {withRouter} from 'react-router-dom';
 import ReCAPTCHA from "react-google-recaptcha";
+import { connect } from "react-redux";
 //Interface
 import Button from './../InterfaceUtils/Button';
 import { Input } from './../InterfaceUtils/Input';
@@ -57,7 +58,7 @@ class SignUpForm extends Component {
             NotificationManager.error('Use captcha to sign up', '', 3000);
         } else{
             this.props.enableLoading();
-            axios.post('http://localhost:8081/registration', {
+            axios.post(`http://localhost:8081/registration/${this.props.language.language.language}`, {
                 "email": this.state.email,
                 "password": this.state.password,
                 "firstName": this.state.name,
@@ -138,7 +139,13 @@ class SignUpForm extends Component {
     }
 }
 
-export default withRouter(SignUpForm);
+const mapStateToProps = state => {
+    return {
+      language: state.lang
+    };
+  };
+
+export default connect(mapStateToProps)(withRouter(SignUpForm));
 
 
 const Header = styled.div`

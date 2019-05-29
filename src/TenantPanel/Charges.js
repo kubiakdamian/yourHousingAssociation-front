@@ -147,7 +147,7 @@ class Charges extends Component {
                                             id="payment.fee.verified"
                                             defaultMessage="Fee is verified and ready to pay."/>
                                     </Info>    
-                                    <Payment amount={this.state.amountToPay} />
+                                    <Payment amount={this.state.amountToPay} checkFeeStatus={this.checkFeeStatus} />
                                 </div>
                             }
                         </div>

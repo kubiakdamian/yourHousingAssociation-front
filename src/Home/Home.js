@@ -12,7 +12,6 @@ import homeImg from '../Images/home.jpg';
 import UserDataForm from './UserDataForm';
 import UserPersonalData from './UserPersonalData';
 
-
 class Home extends Component {
     constructor(){
         super();
@@ -75,11 +74,15 @@ class Home extends Component {
                             <ButtonContainer className="col-md-12 text-center">
                                 <div className="btn-group-vertical" style={{marginBottom: "15vh"}}>
                                     <Button 
-                                        label={"Sign In"}
+                                        label={<FormattedMessage 
+                                            id="sign.in"
+                                            defaultMessage="sign in"/>}
                                         style={{backgroundColor: "rgb(66, 134, 244)", minWidth: "15vw", minHeight: "6vh", marginBottom: "2vh"}}
                                         onClick={() => this.nextPath('/signIn')}/>
                                     <Button 
-                                        label={"Sign Up"}
+                                        label={<FormattedMessage 
+                                            id="sign.up"
+                                            defaultMessage="sign up"/>}
                                         style={{backgroundColor: "rgb(66, 134, 244)", minWidth: "15vw", minHeight: "6vh"}}
                                         onClick={() => this.nextPath('/signUp')}/>
                                 </div>

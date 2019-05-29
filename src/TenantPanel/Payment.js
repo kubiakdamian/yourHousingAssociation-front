@@ -95,6 +95,7 @@ class Payment extends Component {
             .then(response => {
                 NotificationManager.success("Fee paid successfully", '', 4000);
                 this.clearForm();
+                this.props.checkFeeStatus();
             })
             .catch(error => {
                 if(error.response.data.code === 'ICN'){

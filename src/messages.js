@@ -24,7 +24,15 @@ export default {
         'fee.paid': 'All fees paid.',
         'pdf.generate': 'Generate PDF',
         'block': 'Block: ',
-        'apartmentSize': 'Apartment size: '
+        'apartmentSize': 'Apartment size: ',
+        'sign.in': 'Sign in',
+        'sign.up': 'Sign up',
+        'fee.history': "Fees history",
+        'gas': "Gas: ",
+        'coldWater': "Cold water: ",
+        'hotWater': "Hot water: ",
+        'sewage': "Sewage: ",
+        'sum': 'Sum: '
     },
     pl: {
         'admin.addManager': "Dodaj managera",
@@ -51,7 +59,15 @@ export default {
         'fee.paid': 'Wszystkie rachunki opłacone.',
         'pdf.generate': 'Generuj PDF',
         'block': 'Blok: ',
-        'apartmentSize': 'Rozmiar mieszkania: '
+        'apartmentSize': 'Rozmiar mieszkania: ',
+        'sign.in': 'Logowanie',
+        'sign.up': 'Rejestracja',
+        'fee.history': "historia rachunków",
+        'gas': "Gaz: ",
+        'coldWater': "Zimna woda: ",
+        'hotWater': "Ciepła woda: ",
+        'sewage': "Ścieki: ",
+        'sum': 'Suma: '
     },
     de: {
         'admin.addManager': "Manager hinzufügen",
@@ -78,6 +94,14 @@ export default {
         'fee.paid': 'Rechnungen bezahlt.',
         'pdf.generate': 'PDF erzeugen',
         'block': 'Block: ',
-        'apartmentSize': 'Die Größe der Wohnung: '
+        'apartmentSize': 'Die Größe der Wohnung: ',
+        'sign.in': 'einloggen',
+        'sign.up': 'registrieren',
+        'fee.history': "Kontoverlauf",
+        'gas': "Gas: ",
+        'coldWater': "Kaltes Wasser: ",
+        'hotWater': "Heiß water: ",
+        'sewage': "Abwasser: ",
+        'sum': 'Summe: '
     }
 }

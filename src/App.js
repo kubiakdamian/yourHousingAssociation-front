@@ -21,6 +21,7 @@ import FeesToAccept from './ManagerPanel/FeesToAccept';
 import {IntlProvider} from 'react-intl';
 import { connect } from 'react-redux';
 import messages from './messages';
+import ChargesHistory from './TenantPanel/ChargesHistory';
 
 
 class App extends Component {
@@ -40,6 +41,7 @@ class App extends Component {
         <Route path="/addArticle" component={AddArticle} />
         <Route path="/unverifiedTenants" component={UnverifiedTenants} />
         <Route path="/notAcceptedFees" component={FeesToAccept} />
+        <Route path="/chargesHistory" component={ChargesHistory} />
         <NotificationContainer />
       </Router>
     </IntlProvider>
