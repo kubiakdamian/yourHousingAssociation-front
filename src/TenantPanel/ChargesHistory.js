@@ -4,6 +4,8 @@ import { FormattedMessage } from "react-intl";
 import axios from 'axios';
 import _ from 'lodash';
 import styled from 'styled-components';
+import { connect } from "react-redux";
+import {NotificationManager} from 'react-notifications';
 
 class ChargesHistory extends Component {
     constructor(props){
@@ -14,8 +16,21 @@ class ChargesHistory extends Component {
         };
     }
 
+    componentWillMount(){
+        console.log(this.props.user);
+        if(!this.props.user.isVerified){
+            this.moveToHomePage();
+        }
+    }
+
     componentDidMount(){
         this.getFees();
+    }
+
+    moveToHomePage = () => {
+        this.props.history.push({
+            pathname: `/`,
+        });
     }
 
     getFees = () => {
@@ -34,7 +49,6 @@ class ChargesHistory extends Component {
         .catch(error => {
 
         }); 
-
     }
 
     render() {
@@ -93,13 +107,17 @@ class ChargesHistory extends Component {
                     }
                 </div>
             </div>
-
-
         );
     }
 }
 
-export default ChargesHistory;
+const mapStateToProps = state => {
+    return {
+      user: state.user.user
+    };
+  };
+
+export default connect(mapStateToProps)(ChargesHistory);
 
 const FeeBox = styled.div`
     min-height: 10vh;

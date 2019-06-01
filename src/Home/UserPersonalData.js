@@ -33,6 +33,8 @@ class UserPersonalData extends Component {
         })
         .then(response => {
             this.props.getUserData();
+
+            this.props.setUserAsVerified();
         })
         .catch(error => {
             NotificationManager.error('Please try again', 'Something went wrong', 3000);  
@@ -69,9 +71,14 @@ class UserPersonalData extends Component {
                             style={{backgroundColor: "rgb(66, 134, 244)", minWidth: "8vw", minHeight: "4vh"}}
                             onClick={this.verifyUser}/>
                     </ButtonContainer>
+                    <Greeting style={{color: "#ef001b"}}>
+                        <FormattedMessage 
+                            id="verification.info"
+                            defaultMessage="Verify your account to get access to fees"/>
+                    </Greeting>
                     </div>
                     :
-                    <Greeting style={{color: "#03b500", fontSize: "25px"}}>
+                    <Greeting style={{color: "#03b500"}}>
                         <FormattedMessage 
                             id="verified"
                             defaultMessage="Verified"/>
@@ -87,11 +94,12 @@ export default UserPersonalData;
 const Greeting = styled.div`
     text-align: center;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 22px;
     color: white;
+    padding-bottom: 2vh;
 `
 
 const ButtonContainer = styled.div`
     text-align: center;
-    padding-bottom: 3vh;
+    padding-bottom: 1vh;
 `

@@ -51,6 +51,17 @@ class Home extends Component {
         });
     }
 
+    setUserAsVerified = () => {
+        this.props.dispatch({
+            type: "VERIFICATION",
+            data: {
+                isLogged: true,
+                isVerified: true,
+                role: "TENANT"
+            }
+        });
+    }
+
     getArticles = lang => {
         axios
         .get(`http://localhost:8081/article/newest/${lang}`)
@@ -103,10 +114,19 @@ class Home extends Component {
                                         postalCode={this.state.userData.postalCode}
                                         blockNumber={this.state.userData.blockNumber}
                                         isVerified={this.state.userData.verified}
-                                        getUserData={this.getUserData}/>
+                                        getUserData={this.getUserData} 
+                                        setUserAsVerified={this.setUserAsVerified} />
                                 </div>
                                 :
-                                <UserDataForm getUserAddress={this.getUserData} />
+                                <div>
+                                    <UserDataForm getUserAddress={this.getUserData} />
+                                    
+                                    <VerificationInfo style={{color: "#ef001b"}}>
+                                    <FormattedMessage 
+                                        id="verification.info"
+                                        defaultMessage="Verify your account to get access to fees"/>
+                                    </VerificationInfo>
+                                </div>
                             }
                             
                             </PersonalData>
@@ -163,6 +183,14 @@ const PersonalData = styled.div`
     background-color: rgb(39, 41, 45);
     border-radius: 10px;
     opacity: 0.99;
+`
+
+const VerificationInfo = styled.div`
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    padding-bottom: 2vh;
 `
 
 

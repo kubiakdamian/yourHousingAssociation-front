@@ -32,7 +32,8 @@ export default {
         'coldWater': "Cold water: ",
         'hotWater': "Hot water: ",
         'sewage': "Sewage: ",
-        'sum': 'Sum: '
+        'sum': 'Sum: ',
+        'verification.info': 'Verify your account to get access to fees'
     },
     pl: {
         'admin.addManager': "Dodaj managera",
@@ -67,7 +68,8 @@ export default {
         'coldWater': "Zimna woda: ",
         'hotWater': "Ciepła woda: ",
         'sewage': "Ścieki: ",
-        'sum': 'Suma: '
+        'sum': 'Suma: ',
+        'verification.info': 'Zweryfikuj konto, aby uzyskać dostęp do rachunków'
     },
     de: {
         'admin.addManager': "Manager hinzufügen",
@@ -102,6 +104,7 @@ export default {
         'coldWater': "Kaltes Wasser: ",
         'hotWater': "Heiß water: ",
         'sewage': "Abwasser: ",
-        'sum': 'Summe: '
+        'sum': 'Summe: ',
+        'verification.info': 'Überprüfen Sie Ihr Konto, um Zugriff auf Gebühren zu erhalten'
     }
 }

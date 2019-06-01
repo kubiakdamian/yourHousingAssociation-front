@@ -73,7 +73,7 @@ class UserDataForm extends Component {
             } 
         })
         .then(response => {
-            this.props.getUserAddress()
+            this.props.getUserAddress();
         })
         .catch(error => {
             NotificationManager.error('Please try again', 'Something went wrong', 3000);  
@@ -158,5 +158,5 @@ export default UserDataForm;
 
 const ButtonContainer = styled.div`
     text-align: center;
-    padding-bottom: 3vh;
+    padding-bottom: 1vh;
 `

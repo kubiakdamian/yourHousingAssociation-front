@@ -8,6 +8,7 @@ import Button from '../InterfaceUtils/Button';
 import { Input } from '../InterfaceUtils/Input';
 import Payment from './Payment';
 import SubpageHeader from '../InterfaceUtils/SubpageHeader';
+import { connect } from "react-redux";
 
 class Charges extends Component {
     constructor(props){
@@ -27,8 +28,20 @@ class Charges extends Component {
         };
     }
 
+    componentWillMount(){
+        if(!this.props.user.isVerified){
+            this.moveToHomePage();
+        }
+    }
+
     componentDidMount(){
         this.checkIfFeeIsFulfilled();
+    }
+
+    moveToHomePage = () => {
+        this.props.history.push({
+            pathname: `/`,
+        });
     }
 
     checkIfFeeIsFulfilled = () => {
@@ -239,7 +252,13 @@ class Charges extends Component {
     }
 }
 
-export default Charges;
+const mapStateToProps = state => {
+    return {
+      user: state.user.user
+    };
+  };
+
+export default connect(mapStateToProps)(Charges);
 
 const Box = styled.div`
     background-color: #e0e0e0;

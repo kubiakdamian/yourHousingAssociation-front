@@ -48,6 +48,7 @@ class SignInForm extends Component {
                 type: "LOGIN",
                 data: {
                     isLogged: true,
+                    isVerified: response.data.verified,
                     role: response.data.role
                 }
               });

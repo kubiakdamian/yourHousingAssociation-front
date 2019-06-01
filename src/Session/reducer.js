@@ -1,6 +1,7 @@
 const initialStateUser = {
     user: {
       isLogged: false,
+      isVerified: false,
       role: ""
     }
   };
@@ -10,6 +11,8 @@ const initialStateUser = {
       case "LOGIN":
         return { user: action.data };
       case "LOGOUT":
+        return { user: action.data };
+      case "VERIFICATION":
         return { user: action.data };
       default:
         return state;
