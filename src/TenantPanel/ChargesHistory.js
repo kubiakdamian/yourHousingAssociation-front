@@ -5,7 +5,6 @@ import axios from 'axios';
 import _ from 'lodash';
 import styled from 'styled-components';
 import { connect } from "react-redux";
-import {NotificationManager} from 'react-notifications';
 
 class ChargesHistory extends Component {
     constructor(props){

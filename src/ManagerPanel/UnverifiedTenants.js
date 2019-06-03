@@ -28,6 +28,7 @@ class UnverifiedTenants extends Component {
         axios
         .get(`http://localhost:8081/user/tenant/${this.state.tenantEmail}`, {headers: {'Authorization' : localStorage.getItem('yhaToken')}})
         .then(response => {
+            console.log(response.data);
             this.setState({
                 tenant: response.data
             })

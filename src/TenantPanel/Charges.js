@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import Header from '../InterfaceUtils/Header';
 import axios from 'axios';
 import { FormattedMessage } from "react-intl";
 //Interface
