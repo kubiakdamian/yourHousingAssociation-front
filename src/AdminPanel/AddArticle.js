@@ -89,7 +89,7 @@ class AddArticle extends Component {
 
         axios({ 
             method: 'post',
-            url: `http://localhost:8081/article`,
+            url: `http://localhost:8080/article`,
             headers: {
                 'Authorization': localStorage.getItem('yhaToken')
             },

@@ -71,7 +71,7 @@ class AddManager extends Component {
     addManager = () => {
         axios({ 
             method: 'post',
-            url: `http://localhost:8081/registration/manager`,
+            url: `http://localhost:8080/authentication/registration/manager`,
             headers: {
                 'Authorization': localStorage.getItem('yhaToken')
             },

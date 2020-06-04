@@ -20,7 +20,7 @@ class FeesToAccept extends Component {
     getFees = () => {
         axios({ 
             method: 'get',
-            url: `http://localhost:8081/fee/notAccepted`,
+            url: `http://localhost:8080/fee/notAccepted`,
             headers: {
                 'Authorization': localStorage.getItem('yhaToken')
             }
@@ -38,7 +38,7 @@ class FeesToAccept extends Component {
     acceptFee = id => {
         axios({ 
             method: 'post',
-            url: `http://localhost:8081/fee/accept/${id}`,
+            url: `http://localhost:8080/fee/accept/${id}`,
             headers: {
                 'Authorization': localStorage.getItem('yhaToken')
             }
@@ -54,7 +54,7 @@ class FeesToAccept extends Component {
     declineFee = id => {
         axios({ 
             method: 'delete',
-            url: `http://localhost:8081/fee/decline/${id}`,
+            url: `http://localhost:8080/fee/decline/${id}`,
             headers: {
                 'Authorization': localStorage.getItem('yhaToken')
             }

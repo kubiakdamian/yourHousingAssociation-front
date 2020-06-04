@@ -67,13 +67,18 @@ class UserDataForm extends Component {
     setUserAddress = () => {
         axios({ 
             method: 'post',
-            url: `http://localhost:8081/user/address/${this.state.city}/${this.state.blockNumber}/${this.state.street}/${this.state.streetNumber}/${this.state.apartmentNumber}/${this.state.postalCode}/${this.state.apartmentSize}`,
+            url: `http://localhost:8080/authentication/user/address/${this.state.city}/${this.state.blockNumber}/${this.state.street}/${this.state.streetNumber}/${this.state.apartmentNumber}/${this.state.postalCode}/${this.state.apartmentSize}`,
             headers: {
                 'Authorization': localStorage.getItem('yhaToken')
             } 
         })
         .then(response => {
-            this.props.getUserAddress();
+            console.log(response);
+            if(response.data.code === 'AAA') {
+                NotificationManager.error("Address already added.", '', 4000);
+            } else {
+                this.props.getUserAddress();
+            }
         })
         .catch(error => {
             NotificationManager.error('Please try again', 'Something went wrong', 3000);  

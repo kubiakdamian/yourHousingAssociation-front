@@ -26,7 +26,7 @@ class UserPersonalData extends Component {
     verifyUser = () => {
         axios({ 
             method: 'post',
-            url: `http://localhost:8081/user/verify/${this.state.verificationKey}`,
+            url: `http://localhost:8080/authentication/user/verify/${this.state.verificationKey}`,
             headers: {
                 'Authorization': localStorage.getItem('yhaToken')
             } 

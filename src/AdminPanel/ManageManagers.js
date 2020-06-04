@@ -20,7 +20,7 @@ class ManageManagers extends Component {
     getManagers = () => {
         axios({ 
             method: 'get',
-            url: `http://localhost:8081/user/managers`,
+            url: `http://localhost:8080/authentication/user/managers`,
             headers: {
                 'Authorization': localStorage.getItem('yhaToken')
             }
@@ -38,7 +38,7 @@ class ManageManagers extends Component {
     deleteManager = id => {
         axios({ 
             method: 'delete',
-            url: `http://localhost:8081/user/manager/${id}`,
+            url: `http://localhost:8080/authentication/user/manager/${id}`,
             headers: {
                 'Authorization': localStorage.getItem('yhaToken')
             }
@@ -57,7 +57,7 @@ class ManageManagers extends Component {
                 {!_.isEmpty(this.state.managers[0]) &&
                     this.state.managers.map(manager =>
                         <ManagerBox key={"manager" + manager.id}>
-                            <ManagerName>{manager.email}</ManagerName>
+                            <ManagerName>{manager.username}</ManagerName>
                             <DeleteIcon onClick={() => this.deleteManager(manager.id)}>
                                 <img
                                     src={require("../Images/delete_icon.png")}

@@ -58,7 +58,7 @@ class SignUpForm extends Component {
             NotificationManager.error('Use captcha to sign up', '', 3000);
         } else{
             this.props.enableLoading();
-            axios.post(`http://localhost:8081/registration/${this.props.language.language.language}`, {
+            axios.post(`http://localhost:8080/authentication/registration/${this.props.language.language.language}`, {
                 "email": this.state.email,
                 "password": this.state.password,
                 "firstName": this.state.name,

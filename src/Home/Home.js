@@ -40,7 +40,7 @@ class Home extends Component {
 
     getUserData = () => {
         axios
-        .get(`http://localhost:8081/user/personalData`, {headers: {'Authorization' : localStorage.getItem('yhaToken')}})
+        .get(`http://localhost:8080/authentication/user/personalData`, {headers: {'Authorization' : localStorage.getItem('yhaToken')}})
         .then(response => {
             this.setState({
                 userData: response.data
@@ -64,7 +64,7 @@ class Home extends Component {
 
     getArticles = lang => {
         axios
-        .get(`http://localhost:8081/article/newest/${lang}`)
+        .get(`http://localhost:8080/article/newest/${lang}`)
         .then(response => {
             this.setState({
                 articles: response.data

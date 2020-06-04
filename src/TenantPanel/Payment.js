@@ -66,7 +66,7 @@ class Payment extends Component {
         const FileDownload = require('js-file-download');
         axios({ 
             method: 'get',
-            url: `http://localhost:8081/fee/pdf/${this.props.language.language.language}`,
+            url: `http://localhost:8080/fee/pdf/${this.props.language.language.language}`,
             responseType: 'blob',
             headers: {
                 'Authorization': localStorage.getItem('yhaToken')
@@ -84,7 +84,7 @@ class Payment extends Component {
         if(this.state.number.length > 0){
             axios({ 
                 method: 'post',
-                url: `http://localhost:8081/fee/pay`,
+                url: `http://localhost:8080/fee/pay`,
                 headers: {
                     'Authorization': localStorage.getItem('yhaToken')
                 },
