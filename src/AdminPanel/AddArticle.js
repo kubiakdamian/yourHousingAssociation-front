@@ -89,7 +89,7 @@ class AddArticle extends Component {
 
         axios({ 
             method: 'post',
-            url: `http://localhost:8080/article`,
+            url: `http://localhost:8080/articles/article`,
             headers: {
                 'Authorization': localStorage.getItem('yhaToken')
             },
@@ -168,11 +168,11 @@ class AddArticle extends Component {
                             value={this.deText}
                             required />
 
-                        <label htmlFor="file-upload" className="custom-file-upload">
+                        {/* <label htmlFor="file-upload" className="custom-file-upload">
                             Upload photo
                         </label>
                         <input id="file-upload" type="file" accept="image/*" onChange={this.updateImage} />
-                        <FileName>{this.state.file.name}</FileName>
+                        <FileName>{this.state.file.name}</FileName> */}
 
                         <ButtonContainer className="col-md-12">
                             <Button 

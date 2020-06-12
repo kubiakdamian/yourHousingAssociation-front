@@ -46,7 +46,7 @@ class Charges extends Component {
     checkIfFeeIsFulfilled = () => {
         axios({ 
             method: 'get',
-            url: `http://localhost:8080/fee/isAdded`,
+            url: `http://localhost:8080/authentication/fee/isAdded`,
             headers: {
                 'Authorization': localStorage.getItem('yhaToken')
             }
@@ -66,7 +66,7 @@ class Charges extends Component {
     checkFeeStatus = () => {
         axios({ 
             method: 'get',
-            url: `http://localhost:8080/fee/status`,
+            url: `http://localhost:8080/authentication/fee/status`,
             headers: {
                 'Authorization': localStorage.getItem('yhaToken')
             }
@@ -86,7 +86,7 @@ class Charges extends Component {
     addFee = () => {
         axios({ 
             method: 'post',
-            url: `http://localhost:8080/fee/${this.state.gas}/${this.state.coldWater}/${this.state.hotWater}/${this.state.sewage}`,
+            url: `http://localhost:8080/authentication/fee/${this.state.gas}/${this.state.coldWater}/${this.state.hotWater}/${this.state.sewage}`,
             headers: {
                 'Authorization': localStorage.getItem('yhaToken')
             }

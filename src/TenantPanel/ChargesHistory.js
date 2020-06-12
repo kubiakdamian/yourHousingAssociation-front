@@ -35,7 +35,7 @@ class ChargesHistory extends Component {
     getFees = () => {
         axios({ 
             method: 'get',
-            url: `http://localhost:8080/fee/history`,
+            url: `http://localhost:8080/authentication/fee/history`,
             headers: {
                 'Authorization': localStorage.getItem('yhaToken')
             }

@@ -6,10 +6,10 @@ class Announcement extends Component {
         return (
             <Box className="col-md-8 ml-auto mr-auto">
                     <Header>{this.props.header}</Header>
-                    <img
+                    {/* <img
                         src={`http://127.0.0.1:8887/${this.props.imageUrl}`}
                         alt = ""
-                    />
+                    /> */}
                     <Text>{this.props.text}</Text>
             </Box>
         );
@@ -22,15 +22,18 @@ const Box = styled.div`
     min-height: 50vh;
     max-height: 50vh;
     margin-top: 3vh;
+    background:linear-gradient(rgba(250,0,0,0.5),transparent);
+    border-radius: 15px;
+    background-color:orange
 
-    img{
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
+    // img{
+    //     width: 100%;
+    //     height: 100%;
+    //     z-index: -1;
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    // }
 `
 
 const Header = styled.div`

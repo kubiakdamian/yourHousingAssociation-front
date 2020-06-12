@@ -64,7 +64,7 @@ class Home extends Component {
 
     getArticles = lang => {
         axios
-        .get(`http://localhost:8080/article/newest/${lang}`)
+        .get(`http://localhost:8080/articles/article/newest/${lang}`)
         .then(response => {
             this.setState({
                 articles: response.data

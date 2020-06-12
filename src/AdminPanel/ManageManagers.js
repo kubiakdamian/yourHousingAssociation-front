@@ -75,7 +75,7 @@ class ManageManagers extends Component {
 export default ManageManagers;
 
 const ManagerBox = styled.div`
-    min-height: 10vh;
+    min-height: 14vh;
     background: rgb(145,145,145);
     background: radial-gradient(circle, rgba(145,145,145,1) 0%, rgba(0,0,0,1) 100%);
     margin-top: 3vh;
