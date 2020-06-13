@@ -16,9 +16,13 @@ class SignUpForm extends Component {
 
         this.state = {
             email: "",
+            emailError: "",
             password: "",
+            passwordError: "",
             name: "",
+            nameError: "",
             lastName: "",
+            lastNameError: "",
             captchaTicked: false
         };
     }
@@ -31,25 +35,29 @@ class SignUpForm extends Component {
 
     updateEmail = e => {
         this.setState({
-            email: e.target.value
+            email: e.target.value,
+            emailError: e.target.validationMessage
         })
     }
 
     updatePassword = e => {
         this.setState({
-            password: e.target.value
+            password: e.target.value,
+            passwordError: e.target.validationMessage
         })
     }
 
     updateName = e => {
         this.setState({
-            name: e.target.value
+            name: e.target.value,
+            nameError: e.target.validationMessage
         })
     }
 
     updateLastName = e => {
         this.setState({
-            lastName: e.target.value
+            lastName: e.target.value,
+            lastNameError: e.target.validationMessage
         })
     }
 
@@ -89,6 +97,7 @@ class SignUpForm extends Component {
             <div>
                 <Header className="col-md-12">Join us</Header>
                 <div className="col-md-10 ml-auto mr-auto">
+
                     <Input
                         onChange={this.updateEmail}
                         value={this.state.email}
@@ -96,6 +105,9 @@ class SignUpForm extends Component {
                         id="login"
                         type="email"
                         required />
+                    <div className="invalid-feedback d-block">
+                        {this.state.emailError}
+                    </div>
 
                     <Input
                         onChange={this.updatePassword}
@@ -103,7 +115,11 @@ class SignUpForm extends Component {
                         placeholder="Password"
                         id="password"
                         type="password"
+                        minLength="8"
                         required />
+                    <div className="invalid-feedback d-block">
+                        {this.state.passwordError}
+                    </div>
 
                     <Input
                         onChange={this.updateName}
@@ -111,7 +127,11 @@ class SignUpForm extends Component {
                         placeholder="Name"
                         id="name"
                         type="text"
+                        minLength="8"
                         required />
+                    <div className="invalid-feedback d-block">
+                        {this.state.nameError}
+                    </div>
 
                     <Input
                         onChange={this.updateLastName}
@@ -119,7 +139,11 @@ class SignUpForm extends Component {
                         placeholder="Last name"
                         id="lastName"
                         type="text"
+                        minLength="8"
                         required />
+                    <div className="invalid-feedback d-block">
+                        {this.state.lastNameError}
+                    </div>
 
                     <ReCAPTCHA
                         sitekey="6Lf2u5oUAAAAAHvzHMhVsDbxCE_ycfuu_wL6gTS6"

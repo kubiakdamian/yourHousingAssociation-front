@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import axios from 'axios';
 import {NotificationManager} from 'react-notifications';
 import _ from 'lodash';
+import { connect } from "react-redux";
 
 class FeesToAccept extends Component {
     constructor(props){
@@ -13,8 +14,20 @@ class FeesToAccept extends Component {
         };
     }
 
+    componentWillMount(){
+        if(this.props.user.role !== "MANAGER"){
+            this.moveToHomePage();
+        }
+    }
+
     componentDidMount(){
         this.getFees();
+    }
+
+    moveToHomePage = () => {
+        this.props.history.push({
+            pathname: `/`,
+        });
     }
 
     getFees = () => {
@@ -106,7 +119,13 @@ class FeesToAccept extends Component {
     }
 }
 
-export default FeesToAccept;
+const mapStateToProps = state => {
+    return {
+      user: state.user.user
+    };
+  };
+
+export default connect(mapStateToProps)(FeesToAccept);
 
 const FeeBox = styled.div`
     min-height: 10vh;

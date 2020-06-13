@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import {NotificationManager} from 'react-notifications';
+import { connect } from "react-redux";
 import _ from 'lodash';
 
 class ManageManagers extends Component {
@@ -13,8 +14,20 @@ class ManageManagers extends Component {
         };
     }
 
+    componentWillMount(){
+        if(this.props.user.role !== "ADMIN"){
+            this.moveToHomePage();
+        }
+    }
+
     componentDidMount(){
         this.getManagers();
+    }
+
+    moveToHomePage = () => {
+        this.props.history.push({
+            pathname: `/`,
+        });
     }
 
     getManagers = () => {
@@ -72,7 +85,13 @@ class ManageManagers extends Component {
     }
 }
 
-export default ManageManagers;
+const mapStateToProps = state => {
+    return {
+      user: state.user.user
+    };
+  };
+
+export default connect(mapStateToProps)(ManageManagers);
 
 const ManagerBox = styled.div`
     min-height: 14vh;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+import { connect } from "react-redux";
 //Interface
 import Button from '../InterfaceUtils/Button';
 import { Input } from '../InterfaceUtils/Input';
@@ -19,6 +20,18 @@ class AddManager extends Component {
             lowBlock: "",
             highBlock: ""
         };
+    }
+
+    componentWillMount(){
+        if(this.props.user.role !== "ADMIN"){
+            this.moveToHomePage();
+        }
+    }
+
+    moveToHomePage = () => {
+        this.props.history.push({
+            pathname: `/`,
+        });
     }
 
     updateEmail = e => {
@@ -159,8 +172,13 @@ class AddManager extends Component {
     }
 }
 
-export default AddManager;
+const mapStateToProps = state => {
+    return {
+      user: state.user.user
+    };
+  };
 
+export default connect(mapStateToProps)(AddManager);
 
 const Header = styled.div`
     text-align: center;

@@ -20,6 +20,18 @@ class Payment extends Component {
         };
     }
 
+    componentWillMount(){
+        if(this.props.user.role !== "TENANT"){
+            this.moveToHomePage();
+        }
+    }
+
+    moveToHomePage = () => {
+        this.props.history.push({
+            pathname: `/`,
+        });
+    }
+
     updateNumber = e => {
         this.setState({
             number: e.target.value

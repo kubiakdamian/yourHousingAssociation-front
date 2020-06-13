@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+import { connect } from "react-redux";
 //Interface
 import Button from '../InterfaceUtils/Button';
 import { Input } from '../InterfaceUtils/Input';
@@ -21,6 +22,18 @@ class AddArticle extends Component {
             deText: "",
             file: ''
         };
+    }
+
+    componentWillMount(){
+        if(this.props.user.role !== "ADMIN"){
+            this.moveToHomePage();
+        }
+    }
+
+    moveToHomePage = () => {
+        this.props.history.push({
+            pathname: `/`,
+        });
     }
 
     updatePlTitle = e => {
@@ -105,8 +118,6 @@ class AddArticle extends Component {
     }
 
     render() {
-        console.log(this.state.file);
-        console.log(this.state.file.fileName);
         return (
             <FormContainer className="col-md-4 ml-auto mr-auto">
                     <Header className="col-md-12">Add article</Header>
@@ -186,8 +197,13 @@ class AddArticle extends Component {
     }
 }
 
-export default AddArticle;
+const mapStateToProps = state => {
+    return {
+      user: state.user.user
+    };
+  };
 
+export default connect(mapStateToProps)(AddArticle);
 
 const Header = styled.div`
     text-align: center;

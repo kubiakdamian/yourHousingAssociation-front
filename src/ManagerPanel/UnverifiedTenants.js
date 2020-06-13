@@ -7,6 +7,7 @@ import { FormattedMessage } from "react-intl";
 import Button from '../InterfaceUtils/Button';
 import { Input } from '../InterfaceUtils/Input';
 import _ from 'lodash';
+import { connect } from "react-redux";
 
 class UnverifiedTenants extends Component {
     constructor(props){
@@ -16,6 +17,18 @@ class UnverifiedTenants extends Component {
             tenantEmail: "",
             tenant: {}
         };
+    }
+
+    componentWillMount(){
+        if(this.props.user.role !== "MANAGER"){
+            this.moveToHomePage();
+        }
+    }
+
+    moveToHomePage = () => {
+        this.props.history.push({
+            pathname: `/`,
+        });
     }
 
     updateTenantEmail = e => {
@@ -91,7 +104,13 @@ class UnverifiedTenants extends Component {
     }
 }
 
-export default UnverifiedTenants;
+const mapStateToProps = state => {
+    return {
+      user: state.user.user
+    };
+  };
+
+export default connect(mapStateToProps)(UnverifiedTenants);
 
 const ButtonContainer = styled.div`
     margin-top: 3vh;

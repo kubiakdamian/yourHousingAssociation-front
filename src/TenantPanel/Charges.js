@@ -28,7 +28,7 @@ class Charges extends Component {
     }
 
     componentWillMount(){
-        if(!this.props.user.isVerified){
+        if(!this.props.user.isVerified || this.props.user.role !== "TENANT"){
             this.moveToHomePage();
         }
     }
